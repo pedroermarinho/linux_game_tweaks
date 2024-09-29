@@ -24,6 +24,13 @@ O projeto ainda está em fase inicial. As telas já funcionais incluem:
 
 - **Flutter/Dart**
 - Planejado para distribuição via Snap, Flatpak, AppImage e possivelmente AUR.
+	- [ ] Snap
+	- [ ] Flatpak
+	- [x] AppImage
+	- [ ] AUR
+	- [ ] Deb
+	- [ ] RPM
+	- [x] Zip
 
 ---
 
@@ -77,12 +84,32 @@ O projeto ainda está em fase inicial. As telas já funcionais incluem:
 
 ### Distribuição do Aplicativo
 
-Para criar uma versão para distribuição em ambiente Linux:
+### Para criar uma versão para distribuição em ambiente Linux:
 
 ```bash
 flutter build linux --release
 ```
 
+### Para criar em paconte AppImage e zip:
+#### Requisitos
+- [Flutter](https://flutter.dev/docs/get-started/install)
+- [Flutter Distributor](https://distributor.leanflutter.dev/)
+- locate
+  - Debian/Ubuntu
+    ```bash
+      sudo apt install locate
+    ```
+- [AppImageTool](https://github.com/AppImage/AppImageKit)
+  ```bash
+      wget -O appimagetool "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+      chmod +x appimagetool
+      mv appimagetool /usr/local/bin/
+    ```
+  
+### Para criar os pacotes:
+```bash
+  flutter_distributor release --name build
+```
 ---
 
 ## Screenshots
@@ -106,6 +133,7 @@ Licenciado sob a MIT License.
 ## Créditos
 
 [Ubuntu Flutter Settings](https://github.com/ubuntu-flutter-community/settings)
+[Flutter Distributor](https://distributor.leanflutter.dev/)
 
 ---
 

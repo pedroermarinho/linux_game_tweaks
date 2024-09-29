@@ -1,0 +1,20 @@
+display_name: Linux Game Tweaks
+
+icon: assets/linux_game_tweaks.png
+
+keywords:
+  - linux
+  - game
+  - tweaks
+
+generic_name: Ferramenta para ajustes de jogos no Linux.
+
+categories:
+  - Utility
+  - Game
+  - System
+  - Settings
+
+startup_notify: true
+
+include: []
