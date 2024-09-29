@@ -1,0 +1,12 @@
+build
+builds
+.idea
+.dart_tool
+linux/flutter/ephemeral
+*.snap
+dev/appimage/Dockerfile
+dev/native/Dockerfile
+dev/snap/Dockerfile
+docker-compose.yml
+.git
+.gitignore

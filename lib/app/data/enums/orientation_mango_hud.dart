@@ -1,0 +1,1 @@
+enum OrientationMangoHud { horizontal, vertical }
