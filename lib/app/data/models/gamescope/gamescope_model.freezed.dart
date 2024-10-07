@@ -253,8 +253,12 @@ mixin _$GamescopeModel {
   /// Enable adaptive sync if available (variable rate refresh)
   bool get adaptiveSync => throw _privateConstructorUsedError;
 
+  /// Serializes this GamescopeModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GamescopeModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GamescopeModelCopyWith<GamescopeModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -321,6 +325,8 @@ class _$GamescopeModelCopyWithImpl<$Res, $Val extends GamescopeModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GamescopeModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -607,6 +613,8 @@ class __$$GamescopeModelImplCopyWithImpl<$Res>
       _$GamescopeModelImpl _value, $Res Function(_$GamescopeModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GamescopeModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1306,7 +1314,7 @@ class _$GamescopeModelImpl extends _GamescopeModel {
                 other.adaptiveSync == adaptiveSync));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1355,7 +1363,9 @@ class _$GamescopeModelImpl extends _GamescopeModel {
         adaptiveSync
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GamescopeModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GamescopeModelImplCopyWith<_$GamescopeModelImpl> get copyWith =>
@@ -1421,284 +1431,286 @@ abstract class _GamescopeModel extends GamescopeModel {
   factory _GamescopeModel.fromJson(Map<String, dynamic> json) =
       _$GamescopeModelImpl.fromJson;
 
-  @override
-
   /// --output-width
   ///
   /// output width
-  int? get outputWidth;
   @override
+  int? get outputWidth;
 
   /// --output-height
   ///
   /// output height
-  int? get outputHeight;
   @override
+  int? get outputHeight;
 
   /// --nested-width
   ///
   /// game width
-  int? get nestedWidth;
   @override
+  int? get nestedWidth;
 
   /// --nested-height
   ///
   /// game height
-  int? get nestedHeight;
   @override
+  int? get nestedHeight;
 
   /// --nested-refresh
   ///
   /// game refresh rate (frames per second)
-  int? get nestedRefresh;
   @override
+  int? get nestedRefresh;
 
   /// --max-scale
   ///
   /// maximum scale factor
-  double? get maxScale;
   @override
+  double? get maxScale;
 
   ///  --scaler
   ///
   /// upscaler filter (linear, nearest, fsr, nis, pixel)
   /// fsr => AMD FidelityFX™ Super Resolution 1.0
   /// nis => NVIDIA Image Scaling v1.0.3
+  @override
   @JsonStringToScaleGamescope()
   ScaleGamescope get scaler;
-  @override
 
   /// --filter
   ///
   /// upscaler filter (linear, nearest, fsr, nis, pixel)
+  @override
   @JsonStringToFilterGamescope()
   FilterGamescope get filter;
-  @override
 
   /// --sharpness
   ///
   /// upscaler sharpness from 0 (max) to 20 (min)
-  int? get sharpness;
   @override
+  int? get sharpness;
 
   /// --fsr-sharpness
   ///
   /// pscaler sharpness from 0 (max) to 20 (min)
-  int? get fsrSharpness;
   @override
+  int? get fsrSharpness;
 
   /// --expose-wayland
   ///
   /// support wayland clients using xdg-shell
-  bool get exposeWayland;
   @override
+  bool get exposeWayland;
 
   /// --mouse-sensitivity
   ///
   /// multiply mouse movement by given decimal number
+  @override
   @JsonStringToDouble()
   double get mouseSensitivity;
-  @override
 
   /// --headless
   ///
   /// use headless backend (no window, no DRM output)
-  bool get headless;
   @override
+  bool get headless;
 
   /// --cursor
   ///
   /// path to default cursor image
-  String? get cursor;
   @override
+  String? get cursor;
 
   /// --ready-fd
   ///
   /// notify FD when ready
 //TODO: sem informação sobre o tipo de dado
-  int? get readyFd;
   @override
+  int? get readyFd;
 
   /// --rt
   ///
   /// Use realtime scheduling
-  bool get rt;
   @override
+  bool get rt;
 
   /// --stats-path
   ///
   /// write statistics to path
-  String? get statsPath;
   @override
+  String? get statsPath;
 
   /// --hide-cursor-delay
   ///
   /// hide cursor image after delay
-  int? get hideCursorDelay;
   @override
+  int? get hideCursorDelay;
 
   /// --steam
   ///
   /// enable Steam integration
-  bool get steam;
   @override
+  bool get steam;
 
   /// --xwayland-count
   ///
   /// create N xwayland servers
 //TODO: sem informação sobre o tipo de dado
-  int? get xwaylandCount;
   @override
+  int? get xwaylandCount;
 
   /// --prefer-vk-device
   ///
   /// prefer Vulkan device for compositing (ex: 1002:7300)
-  String? get preferVkDevice;
   @override
+  String? get preferVkDevice;
 
   /// --force-orientation
   ///
   /// rotate the internal display (left, right, normal, upsidedown)
+  @override
   @JsonStringToOrientationGamescope()
   OrientationGamescope get orientation;
-  @override
 
   /// --force-windows-fullscreen
   ///
   /// force windows inside of gamescope to be the size of the nested display (fullscreen)
-  bool get forceWindowsFullscreen;
   @override
+  bool get forceWindowsFullscreen;
 
   /// --cursor-scale-height
   ///
   /// if specified, sets a base output height to linearly scale the cursor against.
 //TODO: sem informação sobre o tipo de dado
-  int? get cursorScaleHeight;
   @override
+  int? get cursorScaleHeight;
 
   /// --hdr-enabled
   ///
   /// enable HDR output (needs Gamescope WSI layer enabled for support from clients)
   /// If this is not set, and there is a HDR client, it will be tonemapped SDR.
-  bool get hdrEnabled;
   @override
+  bool get hdrEnabled;
 
   /// --sdr-gamut-wideness
   ///
   /// Set the 'wideness' of the gamut for SDR comment. 0 - 1.
+  @override
   @JsonStringToDouble()
   double? get sdrGamutWideness;
-  @override
 
   /// --hdr-sdr-content-nits
   ///
   /// set the luminance of SDR content in nits. Default: 400 nits.
+  @override
   @JsonStringToDouble()
   double? get hdrSdrContentNits;
-  @override
 
   /// --hdr-itm-enable
   ///
   /// enable SDR->HDR inverse tone mapping. only works for SDR input.
-  bool get hdrItmEnable;
   @override
+  bool get hdrItmEnable;
 
   /// --hdr-itm-sdr-nits
   ///
   /// set the luminance of SDR content in nits used as the input for the inverse tone mapping process.
   /// Default: 100 nits, Max: 1000 nits
+  @override
   @JsonStringToDouble()
   double? get hdrItmSdrNits;
-  @override
 
   /// --hdr-itm-target-nits
   ///
   /// set the target luminace of the inverse tone mapping process.
   /// Default: 1000 nits, Max: 10000 nits
+  @override
   @JsonStringToDouble()
   double? get hdrItmTargetNits;
-  @override
 
   /// --framerate-limit
   ///
   /// Set a simple framerate limit. Used as a divisor of the refresh rate, rounds down eg 60 / 59 -> 60fps, 60 / 25 -> 30fps.
   /// Default: 0, disabled.
+  @override
   @JsonStringToInt()
   int? get framerateLimit;
-  @override
 
   /// --mangoapp
   ///
   /// Launch with the mangoapp (mangohud) performance overlay enabled. You should use this instead of using mangohud on the game or gamescope.
-  bool get mangoapp;
   @override
+  bool get mangoapp;
 
   /// --nested-unfocused-refresh
   ///
   /// game refresh rate when unfocused
-  int? get nestedUnfocusedRefresh;
   @override
+  int? get nestedUnfocusedRefresh;
 
   /// --borderless
   ///
   /// make the window borderless
-  bool get borderless;
   @override
+  bool get borderless;
 
   /// --fullscreen
   ///
   /// make the window fullscreen
-  bool get fullscreen;
   @override
+  bool get fullscreen;
 
   /// --grab
   ///
   /// grab the keyboard
-  bool get grab;
   @override
+  bool get grab;
 
   /// --force-grab-cursor
   ///
   /// always use relative mouse mode instead of flipping dependent on cursor visibility.
-  bool get forceGrabCursor;
   @override
+  bool get forceGrabCursor;
 
   /// --display-index
   ///
   ///  forces gamescope to use a specific display in nested mode.
-  int? get displayIndex;
   @override
+  int? get displayIndex;
 
   /// --prefer-output
   ///
   /// list of connectors in order of preference
-  List<String>? get preferOutput;
   @override
+  List<String>? get preferOutput;
 
   /// --default-touch-mode
   ///
   /// 0: hover, 1: left, 2: right, 3: middle, 4: passthrough
-  int? get defaultTouchMode;
   @override
+  int? get defaultTouchMode;
 
   /// generate-drm-mode
   ///
   /// DRM mode generation algorithm (cvt, fixed)
-  String? get generateDrmMode;
   @override
+  String? get generateDrmMode;
 
   /// --immediate-flips
   ///
   /// Enable immediate flips, may result in tearing
-  bool get immediateFlips;
   @override
+  bool get immediateFlips;
 
   /// --adaptive-sync
   ///
   /// Enable adaptive sync if available (variable rate refresh)
-  bool get adaptiveSync;
   @override
-  @JsonKey(ignore: true)
+  bool get adaptiveSync;
+
+  /// Create a copy of GamescopeModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GamescopeModelImplCopyWith<_$GamescopeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

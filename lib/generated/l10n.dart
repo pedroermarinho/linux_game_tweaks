@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Game Tweaks`
+  /// `Linux Game Tweaks`
   String get appName {
     return Intl.message(
-      'Game Tweaks',
+      'Linux Game Tweaks',
       name: 'appName',
       desc: '',
       args: [],
@@ -80,10 +80,10 @@ class S {
     );
   }
 
-  /// `Aplicações`
+  /// `Jogos`
   String get appPageApplications {
     return Intl.message(
-      'Aplicações',
+      'Jogos',
       name: 'appPageApplications',
       desc: '',
       args: [],

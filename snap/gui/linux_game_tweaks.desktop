@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Linux Game Tweaks
+Comment=Ferramenta para ajustes de jogos no Linux.
+Keywords=game; tweaks; linux;
+Exec=linux-game-tweaks %U
+Icon=${SNAP}/meta/gui/linux_game_tweaks.png
+Terminal=false
+Categories=Game;

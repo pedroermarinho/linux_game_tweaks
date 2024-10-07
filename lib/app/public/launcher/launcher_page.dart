@@ -15,8 +15,14 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
     final store = watchIt<CommandStore>();
 
     return YaruDetailPage(
-      appBar: const YaruWindowTitleBar(
+      appBar: YaruWindowTitleBar(
         title: Text('Lançador de aplicativos'),
+        leading: !Navigator.of(context).canPop()
+            ? null
+            : YaruOptionButton.new(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Icon(YaruIcons.arrow_left, size: 25),
+              ),
       ),
       body: SettingsPageWidget(
         children: [
@@ -74,6 +80,11 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
                 value: store.isEnableGamescope,
                 onChanged: store.setEnableGamescope,
               ),
+              YaruSwitchRowWidget(
+                trailingWidget: Text("Habilitar Wine"),
+                value: store.isEnableWine,
+                onChanged: store.setEnableWine,
+              ),
             ],
           ),
           SettingsSectionWidget(
@@ -122,9 +133,17 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
               Visibility(
                 visible: store.isError,
                 child: YaruInfoBox(
-                    yaruInfoType: YaruInfoType.important,
-                    title: Text("Ocorreu um erro ao executar o comando"),
-                    subtitle: Text(store.messageError ?? "")),
+                  yaruInfoType: YaruInfoType.important,
+                  title: Text("Ocorreu um erro ao executar o comando"),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(store.messageError ?? "Erro desconhecido"),
+                      Text(store.messageErrorDetails ??
+                          "Detalhes do erro desconhecidos"),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

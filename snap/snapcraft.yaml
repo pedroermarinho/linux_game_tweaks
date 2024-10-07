@@ -1,0 +1,51 @@
+name: linux-game-tweaks
+title: Linux Game Tweaks
+version: git
+summary: Ferramenta para ajustes de jogos no Linux.
+description: Ajuste facilmente jogos no Linux com Game Tweaks.
+website: https://github.com/pedroermarinho/linux_game_tweaks
+contact: pedroermarinho@gmail.com
+source-code: https://github.com/pedroermarinho/linux_game_tweaks
+icon: snap/gui/linux-game-tweaks.png
+
+confinement: devmode
+base: core22
+grade: stable
+license: MIT
+
+architectures:
+  - build-on: amd64
+
+apps:
+  game-tweaks:
+    command: linux-game-tweaks
+    extensions: [gnome]
+    plugs:
+        - desktop
+        - gsettings
+        - home
+        - network
+        - network-status
+        - process-control
+
+slots:
+  game-tweaks:
+    interface: dbus
+    bus: session
+    name: io.github.pedroermarinho.linux-game-tweaks
+
+parts:
+  game-tweaks:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main.dart
+    override-build: |
+      set -e
+      rm -rf build .idea .git .dart_tool .pub .vscode .github android ios web
+      snapcraftctl build
+      
+  dependencies:
+    plugin: nil
+    stage-packages:
+      - mangohud
+      - vulkan-tools

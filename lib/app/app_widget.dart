@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gtk/gtk.dart';
 import 'package:linux_game_tweaks/app/app_page.dart';
-import 'package:linux_game_tweaks/app/data/store/command_store.dart';
-import 'package:linux_game_tweaks/app/providers.dart';
+import 'package:linux_game_tweaks/app/data/services/command_service.dart';
+import 'package:linux_game_tweaks/app/data/services/config_app_service.dart';
 import 'package:yaru/theme.dart';
 
 import '../generated/l10n.dart';
@@ -14,11 +14,11 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return YaruTheme(builder: (context, yaru, child) {
-      final commandStore = getIt<CommandStore>();
       return GtkApplication(
-        onCommandLine: (args) => commandStore.setCommand(args),
+        onCommandLine: (args) => CommandService.new(args: args),
         onOpen: (files, hint) => print('open ($hint): $files'),
         child: MaterialApp(
+          navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,
           localizationsDelegates: const [
             S.delegate,

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:change_case/change_case.dart';
 import 'package:linux_game_tweaks/app/data/models/mango_hud/mango_hud_model.dart';
+import 'package:path/path.dart';
 import 'package:xdg_directories/xdg_directories.dart';
 
 class MangoHudService {
@@ -56,7 +57,7 @@ class MangoHudService {
   }
 
   String getPathFileConfig() {
-    return '${configHome.path}/MangoHud/MangoHud.conf';
+    return join(configHome.path, 'MangoHud', 'MangoHud.conf');
   }
 
   Future<MangoHudModel> getMangoHudConfig() async {

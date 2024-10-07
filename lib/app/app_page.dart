@@ -107,11 +107,12 @@ class AppPage extends StatelessWidget with WatchItMixin {
 }
 
 class _ItemMenu {
-  const _ItemMenu(
-      {required this.title,
-      required this.icon,
-      required this.page,
-      this.visible = true});
+  const _ItemMenu({
+    required this.title,
+    required this.icon,
+    required this.page,
+    this.visible = true,
+  });
 
   final String title;
   final IconData icon;

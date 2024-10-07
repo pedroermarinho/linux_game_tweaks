@@ -1,13 +1,17 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 class CommandStore extends ChangeNotifier {
+  final log = Logger('Command Execution');
   List<String> command = [];
   String? messageError;
+  String? messageErrorDetails;
   bool isEnableMangoHud = false;
   bool isEnableGameMode = false;
   bool isEnableGamescope = false;
+  bool isEnableWine = false;
   String? prefix;
   String? suffix;
 
@@ -19,6 +23,10 @@ class CommandStore extends ChangeNotifier {
     }
 
     List<String> commandFinal = [...command];
+
+    if (isEnableWine) {
+      commandFinal.insert(0, 'wine');
+    }
 
     if (isEnableMangoHud) {
       commandFinal.insert(0, 'mangohud');
@@ -70,6 +78,11 @@ class CommandStore extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setEnableWine(bool value) {
+    isEnableWine = value;
+    notifyListeners();
+  }
+
   void setCommandPrefix(String? value) {
     prefix = value;
     notifyListeners();
@@ -86,6 +99,7 @@ class CommandStore extends ChangeNotifier {
     isEnableMangoHud = false;
     isEnableGameMode = false;
     isEnableGamescope = false;
+    isEnableWine = false;
     prefix = null;
     suffix = null;
     notifyListeners();
@@ -93,6 +107,8 @@ class CommandStore extends ChangeNotifier {
 
   Future<void> runCommand() async {
     messageError = null;
+    messageErrorDetails = null;
+    notifyListeners();
     try {
       final process =
           await Process.run(finalCommand.first, finalCommand.sublist(1));
@@ -100,9 +116,15 @@ class CommandStore extends ChangeNotifier {
       if (process.exitCode != 0) {
         messageError = process.stderr.toString();
       }
+    } on ProcessException catch (e) {
+      messageError = "Erro ao executar o comando: ${finalCommand.join(' ')}";
+      messageErrorDetails = e.message;
+      log.error(
+          "Error on run commamando ${finalCommand.join(' ')} - ${e.message}");
     } catch (e) {
       messageError = "Erro ao executar o comando: ${finalCommand.join(' ')}";
-      print(e);
+      log.error(
+          "Error on run commamando ${finalCommand.join(' ')} - ${e.toString()}");
     }
     notifyListeners();
   }

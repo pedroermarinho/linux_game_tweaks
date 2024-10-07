@@ -1,74 +1,81 @@
 import 'package:flutter/cupertino.dart';
+import 'package:linux_game_tweaks/app/data/models/preview_mode/preview_mode_model.dart';
+import 'package:linux_game_tweaks/app/data/services/preview_mode_service.dart';
 
 class PreviewModeStore extends ChangeNotifier {
-  bool isEnablePreviewMode = false;
-  bool isEnableHome = false;
-  bool isEnableLauncher = false;
-  bool isEnableApplications = false;
-  bool isEnableWine = false;
-  bool isEnableGamescope = false;
-  bool isEnableInfo = false;
-  bool isEnableLinks = false;
-  bool isEnableAbout = false;
+  PreviewModeModel _previewModeModel = PreviewModeModel();
 
   void setEnablePreviewMode(bool value) {
-    isEnablePreviewMode = value;
-    notifyListeners();
+    _previewModeModel.isEnablePreviewMode = value;
     if (!value) {
       _clearPreviewMode();
     }
+    notifyListeners();
+  }
+
+  void setConfig(PreviewModeModel previewModeModel) {
+    _previewModeModel = previewModeModel;
+    notifyListeners();
   }
 
   void setEnableHome(bool value) {
-    isEnableHome = value;
+    _previewModeModel.isEnableHome = value;
     notifyListeners();
   }
 
   void setEnableLauncher(bool value) {
-    isEnableLauncher = value;
+    _previewModeModel.isEnableLauncher = value;
     notifyListeners();
   }
 
   void setEnableApplications(bool value) {
-    isEnableApplications = value;
+    _previewModeModel.isEnableApplications = value;
     notifyListeners();
   }
 
   void setEnableWine(bool value) {
-    isEnableWine = value;
+    _previewModeModel.isEnableWine = value;
     notifyListeners();
   }
 
   void setEnableGamescope(bool value) {
-    isEnableGamescope = value;
+    _previewModeModel.isEnableGamescope = value;
     notifyListeners();
   }
 
   void setEnableInfo(bool value) {
-    isEnableInfo = value;
+    _previewModeModel.isEnableInfo = value;
     notifyListeners();
   }
 
   void setEnableLinks(bool value) {
-    isEnableLinks = value;
+    _previewModeModel.isEnableLinks = value;
     notifyListeners();
   }
 
   void setEnableAbout(bool value) {
-    isEnableAbout = value;
+    _previewModeModel.isEnableAbout = value;
     notifyListeners();
   }
 
   void _clearPreviewMode() {
-    isEnablePreviewMode = false;
-    isEnableHome = false;
-    isEnableLauncher = false;
-    isEnableApplications = false;
-    isEnableWine = false;
-    isEnableGamescope = false;
-    isEnableInfo = false;
-    isEnableLinks = false;
-    isEnableAbout = false;
+    _previewModeModel.clearPreviewMode();
     notifyListeners();
+  }
+
+  bool get isEnablePreviewMode => _previewModeModel.isEnablePreviewMode;
+  bool get isEnableHome => _previewModeModel.isEnableHome;
+  bool get isEnableLauncher => _previewModeModel.isEnableLauncher;
+  bool get isEnableApplications => _previewModeModel.isEnableApplications;
+  bool get isEnableWine => _previewModeModel.isEnableWine;
+  bool get isEnableGamescope => _previewModeModel.isEnableGamescope;
+  bool get isEnableInfo => _previewModeModel.isEnableInfo;
+  bool get isEnableLinks => _previewModeModel.isEnableLinks;
+  bool get isEnableAbout => _previewModeModel.isEnableAbout;
+
+  @override
+  void notifyListeners() {
+    PreviewModeService.save(_previewModeModel);
+    super.notifyListeners();
   }
 }

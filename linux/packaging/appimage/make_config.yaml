@@ -2,6 +2,11 @@ display_name: Linux Game Tweaks
 
 icon: assets/linux_game_tweaks.png
 
+supported_mime_type:
+  - application/x-ms-dos-executable
+  - application/x-msi
+  - application/x-ms-shortcut
+
 keywords:
   - linux
   - game

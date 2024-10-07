@@ -725,8 +725,12 @@ mixin _$MangoHudModel {
   /// Set location and name of the log file
   String? get outputFile => throw _privateConstructorUsedError;
 
+  /// Serializes this MangoHudModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MangoHudModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MangoHudModelCopyWith<MangoHudModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -884,6 +888,8 @@ class _$MangoHudModelCopyWithImpl<$Res, $Val extends MangoHudModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MangoHudModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1716,6 +1722,8 @@ class __$$MangoHudModelImplCopyWithImpl<$Res>
       _$MangoHudModelImpl _value, $Res Function(_$MangoHudModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MangoHudModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3700,7 +3708,7 @@ class _$MangoHudModelImpl extends _MangoHudModel {
             (identical(other.outputFile, outputFile) || other.outputFile == outputFile));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -3840,7 +3848,9 @@ class _$MangoHudModelImpl extends _MangoHudModel {
         outputFile
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MangoHudModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MangoHudModelImplCopyWith<_$MangoHudModelImpl> get copyWith =>
@@ -3995,847 +4005,849 @@ abstract class _MangoHudModel extends MangoHudModel {
   factory _MangoHudModel.fromJson(Map<String, dynamic> json) =
       _$MangoHudModelImpl.fromJson;
 
-  @override
-
   /// horizontal
   ///
   /// Display Mangohud in a horizontal position
-  bool get horizontal;
   @override
+  bool get horizontal;
 
   /// alpha
   ///
   /// Set the opacity of all text and frametime graph 0.0-1.0
+  @override
   @JsonStringToDouble()
   double get alpha;
-  @override
 
   /// round_corners
   ///
   /// Change the amount of roundness of the corners have e.g round_corners=10.0
+  @override
   @JsonStringToInt()
   int get roundCorners;
-  @override
 
   /// background_alpha
   ///
   /// Set the opacity of the background 0.0-1.0
+  @override
   @JsonStringToDouble()
   double get backgroundAlpha;
-  @override
 
   /// background_color
   ///
   /// Change default colors: gpu_color=RRGGBB
+  @override
   @JsonStringToColorOrNull()
   Color? get backgroundColor;
-  @override
 
   /// font_file
   ///
   /// Change default font (set location to .TTF/.OTF file)
-  String? get fontFile;
   @override
+  String? get fontFile;
 
   /// font_size
   ///
   /// Customizeable font size. Default is 24
+  @override
   @JsonStringToInt()
   int get fontSize;
-  @override
 
   /// text_color
   ///
   /// Change default colors: gpu_color=RRGGBB
+  @override
   @JsonStringToColorOrNull()
   Color? get textColor;
-  @override
 
   /// position
   ///
   /// Location of the HUD: top-left (default), top-right, middle-left, middle-right, bottom-left, bottom-right, top-center, bottom-center
+  @override
   @JsonStringToPositionMangoHud()
   PositionMangoHud get position;
-  @override
 
   /// toggle_hud
   ///
   /// Modifiable toggle hotkeys. Default is Shift_R+F12
-  String get toggleHud;
   @override
+  String get toggleHud;
 
   /// table_columns
   ///
   /// Set the number of table columns for ImGui, defaults to 3
+  @override
   @JsonStringToInt()
   int get tableColumns;
-  @override
 
   /// gpu_text
   ///
   /// Override CPU and GPU text
-  String? get gpuText;
   @override
+  String? get gpuText;
 
   /// gpu_stats
   ///
 //TODO: int, disabled =0
-  bool get gpuStats;
   @override
+  bool get gpuStats;
 
   /// gpu_load_change
   ///
   /// Change the color of the GPU load depending on load
-  bool get gpuLoadChange;
   @override
+  bool get gpuLoadChange;
 
   /// gpu_load_value
   ///
   /// Set the values for medium and high load e.g gpu_load_value=50,90
 //TODO: change to List Number
-  String? get gpuLoadValue;
   @override
+  String? get gpuLoadValue;
 
   /// gpu_load_color
   ///
   /// Set the colors for the gpu load change low,medium and high. e.g gpu_load_color=0000FF,00FFFF,FF00FF
 //TODO: change to List Color
-  String? get gpuLoadColor;
   @override
+  String? get gpuLoadColor;
 
   /// gpu_voltage
   ///
   /// Display GPU voltage (only works on AMD GPUs)
-  bool get gpuVoltage;
   @override
+  bool get gpuVoltage;
 
   /// throttling_status
   ///
   /// Show if GPU is throttling based on Power, current, temp or "other" (Only shows if throttling is currently happening). Currently disabled by default for Nvidia as it causes lag on 3000 series
-  bool get throttlingStatus;
   @override
+  bool get throttlingStatus;
 
   /// gpu_core_clock
   ///
   /// Display GPU core/memory frequency
-  bool get gpuCoreClock;
   @override
+  bool get gpuCoreClock;
 
   /// gpu_mem_clock
   ///
   /// Display GPU core/memory frequency
-  bool get gpuMemClock;
   @override
+  bool get gpuMemClock;
 
   /// gpu_temp
   ///
   /// Display current CPU/GPU temperature
-  bool get gpuTemp;
   @override
+  bool get gpuTemp;
 
   /// gpu_mem_temp
   ///
   /// Display current CPU/GPU temperature
-  bool get gpuMemTemp;
   @override
+  bool get gpuMemTemp;
 
   /// gpu_junction_temp
   ///
   /// Display current CPU/GPU temperature
-  bool get gpuJunctionTemp;
   @override
+  bool get gpuJunctionTemp;
 
   /// gpu_fan
   ///
   /// GPU fan in rpm on AMD, FAN in percent on NVIDIA
-  bool get gpuFan;
   @override
+  bool get gpuFan;
 
   /// gpu_power
   ///
   /// Display CPU/GPU draw in watts
-  bool get gpuPower;
   @override
+  bool get gpuPower;
 
   /// cpu_text
   ///
   /// Override CPU and GPU text
-  String? get cpuText;
   @override
+  String? get cpuText;
 
   /// cpu_stats
 //TODO: int, disabled =0
-  bool get cpuStats;
   @override
+  bool get cpuStats;
 
   /// core_load
   ///
   /// Display load & frequency per core
-  bool get coreLoad;
   @override
+  bool get coreLoad;
 
   /// core_bars
   ///
   /// Change the display of core_load from numbers to vertical bars
-  bool get coreBars;
   @override
+  bool get coreBars;
 
   /// cpu_load_change
   ///
   /// Change the color of the CPU load depending on load
-  bool get cpuLoadChange;
   @override
+  bool get cpuLoadChange;
 
   /// cpu_load_value
   ///
   /// Set the values for medium and high load e.g cpu_load_value=50,90
 //TODO: change to List Number
-  String? get cpuLoadValue;
   @override
+  String? get cpuLoadValue;
 
   /// cpu_load_color
   ///
   /// Set the colors for the gpu load change low, medium and high. e.g cpu_load_color=0000FF,00FFFF,FF00FF
 //TODO: change to List Color
-  String? get cpuLoadColor;
   @override
+  String? get cpuLoadColor;
 
   /// cpu_mhz
   ///
   /// Show the CPUs current MHz
-  bool get cpuMhz;
   @override
+  bool get cpuMhz;
 
   /// cpu_temp
   ///
   /// Display current CPU/GPU temperature
-  bool get cpuTemp;
   @override
+  bool get cpuTemp;
 
   /// cpu_power
   ///
   /// Display CPU/GPU draw in watts
-  bool get cpuPower;
   @override
+  bool get cpuPower;
 
   /// io_stats
-  bool get ioStats;
   @override
+  bool get ioStats;
 
   /// io_read
   ///
   /// Show non-cached IO read/write, in MiB/s
-  bool get ioRead;
   @override
+  bool get ioRead;
 
   /// io_write
   ///
   /// Show non-cached IO read/write, in MiB/s
-  bool get ioWrite;
   @override
+  bool get ioWrite;
 
   /// swap
   ///
   /// Display swap space usage next to system RAM usage
-  bool get swap;
   @override
+  bool get swap;
 
   /// vram
   ///
   /// Display system VRAM usage
-  bool get vram;
   @override
+  bool get vram;
 
   /// vram_color
   ///
   /// Change default colors: gpu_color=RRGGBB
+  @override
   @JsonStringToColorOrNull()
   Color? get vramColor;
-  @override
 
   /// ram
   ///
   /// Display system RAM usage
-  bool get ram;
   @override
+  bool get ram;
 
   /// ram_color
   ///
   /// Change default colors: gpu_color=RRGGBB
+  @override
   @JsonStringToColorOrNull()
   Color? get ramColor;
-  @override
 
   /// procmem
   ///
   /// Displays process' memory usage: resident, shared and/or virtual. procmem (resident) also toggles others off if disabled
-  bool get procmem;
   @override
+  bool get procmem;
 
   /// fps
 //TODO: int, disabled =0
-  bool get fps;
   @override
+  bool get fps;
 
   /// engine
   ///
 //Todo: verificar se parametro exit
-  bool get engine;
   @override
+  bool get engine;
 
   /// engine_color
   ///
   /// Change default colors: gpu_color=RRGGBB
+  @override
   @JsonStringToColorOrNull()
   Color? get engineColor;
-  @override
 
   /// engine_short_names
   ///
   /// Display a short version of the used engine (e.g. OGL instead of OpenGL)
-  bool get engineShortNames;
   @override
+  bool get engineShortNames;
 
   /// vulkan_driver
   ///
   /// Display used Vulkan driver (radv/amdgpu-pro/amdvlk)
-  bool get vulkanDriver;
   @override
+  bool get vulkanDriver;
 
   /// arch
   ///
   /// Show if the application is 32- or 64-bit
-  bool get arch;
   @override
+  bool get arch;
 
   /// wine
   ///
   /// Show current Wine or Proton version in use
-  bool get wine;
   @override
+  bool get wine;
 
   /// wine_color
   ///
   /// Change color of the wine/proton text
+  @override
   @JsonStringToColorOrNull()
   Color? get wineColor;
-  @override
 
   /// frame_timing
 //TODO: int, disabled =0
-  bool get frameTiming;
   @override
+  bool get frameTiming;
 
   /// frametime_color
   ///
   /// Change default colors: gpu_color=RRGGBB
+  @override
   @JsonStringToColorOrNull()
   Color? get frametimeColor;
-  @override
 
   /// gpu_name
   ///
   /// Display GPU name from pci.ids
-  bool get gpuName;
   @override
+  bool get gpuName;
 
   /// frame_count
   ///
   /// Display frame count
-  bool get frameCount;
   @override
+  bool get frameCount;
 
   /// fps_limit_method
   ///
   /// If FPS limiter should wait before or after presenting a frame. Choose late (default) for the lowest latency or early for the smoothest frametimes
 //TODO: change to enum
-  String get fpsLimitMethod;
   @override
+  String get fpsLimitMethod;
 
   /// toggle_fps_limit
   ///
   /// Cycle between FPS limits (needs at least two values set with fps_limit). Defaults to Shift_L+F1
-  String get toggleFpsLimit;
   @override
+  String get toggleFpsLimit;
 
   /// show_fps_limit
   ///
   /// Display the current FPS limit
-  bool get showFpsLimit;
   @override
+  bool get showFpsLimit;
 
   /// fps_limit
   ///
   /// Limit the apps framerate. Comma-separated list of one or more FPS values. 0 means unlimited
+  @override
   @JsonStringToIntOrNull()
   int? get fpsLimit;
-  @override
 
   /// resolution
   ///
   /// Display the current resolution
-  bool get resolution;
   @override
+  bool get resolution;
 
   /// fcat
   ///
   /// Enables frame capture analysis
-  bool get fcat;
   @override
+  bool get fcat;
 
   /// fsr
   ///
   /// Display the status of FSR (only works in gamescope)
-  bool get fsr;
   @override
+  bool get fsr;
 
   /// hdr
   ///
   /// Display the status of HDR (only works in gamescope)
-  bool get hdr;
   @override
+  bool get hdr;
 
   /// refresh_rate
   ///
   /// Display the current refresh rate (only works in gamescope)
-  bool get refreshRate;
   @override
+  bool get refreshRate;
 
   /// gamemode
   ///
   /// Show if GameMode is on
-  bool get gamemode;
   @override
+  bool get gamemode;
 
   /// vkbasalt
   ///
   ///Show if vkBasalt is on
-  bool get vkbasalt;
   @override
+  bool get vkbasalt;
 
   /// battery
   ///
   /// Display current battery percent and energy consumption
-  bool get battery;
   @override
+  bool get battery;
 
   /// battery_color
   ///
   /// Change the battery text color
+  @override
   @JsonStringToColorOrNull()
   Color? get batteryColor;
-  @override
 
   /// battery_watt
   ///
   /// Display wattage for the battery option
-  bool get batteryWatt;
   @override
+  bool get batteryWatt;
 
   /// battery_time
   ///
   /// Display remaining time for battery option
-  bool get batteryTime;
   @override
+  bool get batteryTime;
 
   /// battery_icon
   ///
   /// Display battery icon instead of percent
-  bool get batteryIcon;
   @override
+  bool get batteryIcon;
 
   /// device_battery
   ///
   /// Display wireless device battery percent. Currently supported arguments gamepad and mouse e.g device_battery=gamepad,mouse
-  bool get deviceBattery;
   @override
+  bool get deviceBattery;
 
   /// fps_color_change
   ///
   /// Change the FPS text color depepending on the FPS value
-  bool get fpsColorChange;
   @override
+  bool get fpsColorChange;
 
   /// fps_color
   ///
   /// Choose the colors that the fps changes to when fps_color_change is enabled. Corresponds with fps_value. Default is b22222,fdfd09,39f900
 //TODO: change to List Color
-  String? get fpsColor;
   @override
+  String? get fpsColor;
 
   /// fps_value
   ///
   /// Choose the break points where fps_color_change changes colors between. E.g 60,144, default is 30,60
 //TODO: change to List Number
-  String? get fpsValue;
   @override
+  String? get fpsValue;
 
   /// vsync
   ///
   /// Set Vsync for Vulkan
+  @override
   @JsonStringToIntOrNull()
   int? get vsync;
-  @override
 
   /// gl_vsync
   ///
   /// Set Vsync for OpenGL
-  String? get glVsync;
   @override
+  String? get glVsync;
 
   /// trilinear
   ///
   /// Force trilinear filtering
-  bool get trilinear;
   @override
+  bool get trilinear;
 
   /// af
   ///
   /// Anisotropic filtering level. Improves sharpness of textures viewed at an angle 0-16
+  @override
   @JsonStringToIntOrNull()
   int? get af;
-  @override
 
   /// picmip
   ///
   /// Mip-map LoD bias. Negative values will increase texture sharpness (and aliasing). Positive values will increase texture blurriness -16-16
+  @override
   @JsonStringToIntOrNull()
   int? get picmip;
-  @override
 
   /// time
   ///
   /// Display local time. See std::put_time for formatting help. NOTE: Sometimes apps may set TZ (timezone) environment variable to UTC/GMT
-  bool get time;
   @override
+  bool get time;
 
   /// version
   ///
   /// Show current MangoHud version
-  bool get version;
   @override
+  bool get version;
 
   /// output_folder
   ///
   /// Set location of the output files (Required for logging)
-  String? get outputFolder;
   @override
+  String? get outputFolder;
 
   /// log_duration
   ///
   /// Set amount of time the logging will run for (in seconds)
+  @override
   @JsonStringToIntOrNull()
   int? get logDuration;
-  @override
 
   /// autostart_log
   ///
   /// Starts the log after X seconds from mangohud init
+  @override
   @JsonStringToIntOrNull()
   int? get autostartLog;
-  @override
 
   /// log_interval
   ///
   /// Change the default log interval in milliseconds. Default is 0
+  @override
   @JsonStringToInt()
   int get logInterval;
-  @override
 
   /// toggle_logging
   ///
   /// Modifiable toggle hotkeys. Default is Shift_L+F2
-  String get toggleLogging;
   @override
+  String get toggleLogging;
 
   /// log_versioning
   ///
   /// Adds more headers and information such as versioning to the log. This format is not supported on flightlessmango.com (yet)
-  bool get logVersioning;
   @override
+  bool get logVersioning;
 
   /// upload_logs
   ///
   /// Enables automatic uploads of logs to flightlessmango.com
-  bool get uploadLogs;
   @override
+  bool get uploadLogs;
 
   /// benchmark_percentiles
   ///
   /// Configure which framerate percentiles are shown in the logging summary. Default is 97,AVG,1,0.1
-  String? get benchmarkPercentiles;
   @override
+  String? get benchmarkPercentiles;
 
   /// bicubic
   ///
   /// Force bicubic filtering
-  bool get bicubic;
   @override
+  bool get bicubic;
 
   /// blacklist
   ///
   /// Add a program to the blacklist. e.g blacklist=vkcube,WatchDogs2.exe
-  String? get blacklist;
   @override
+  String? get blacklist;
 
   /// cellpadding_y
   ///
   /// Set the vertical cellpadding, default is -0.085
+  @override
   @JsonStringToDouble()
   double get cellpaddingY;
-  @override
 
   /// control
   ///
   /// Sets up a unix socket with a specific name that can be connected to with mangohud-control.
   /// I.e. control=mangohud or control=mangohud-%p (%p will be replaced by process id)
-  String? get control;
   @override
+  String? get control;
 
   /// core_load_change
   ///
   /// Change the colors of cpu core loads, uses the same data from cpu_load_value and cpu_load_change
-  bool get coreLoadChange;
   @override
+  bool get coreLoadChange;
 
   /// custom_text_center
   ///
   /// Display a custom text centered useful for a header e.g custom_text_center=FlightLessMango Benchmarks
-  String? get customTextCenter;
   @override
+  String? get customTextCenter;
 
   /// custom_text
   ///
   /// Display a custom text e.g custom_text=Fsync enabled
-  String? get customText;
   @override
+  String? get customText;
 
   /// debug
   ///
   /// Shows the graph of gamescope app frametimes and latency (only on gamescope obviously)
-  bool get debug;
   @override
+  bool get debug;
 
   /// device_battery_icon
   ///
   /// Display wirless device battery icon.
-  bool get deviceBatteryIcon;
   @override
+  bool get deviceBatteryIcon;
 
   /// dynamic_frame_timing
   ///
   /// This changes frame_timing y-axis to correspond with the current maximum and minimum frametime instead of being a static 0-50
-  bool get dynamicFrameTiming;
   @override
+  bool get dynamicFrameTiming;
 
   /// engine_version
   ///
   /// Display OpenGL or vulkan and vulkan-based render engine's version
-  bool get engineVersion;
   @override
+  bool get engineVersion;
 
   /// exec
   ///
   /// Display output of bash command in next column, e.g custom_text=/home , exec=df -h /home | tail -n 1. Only works with legacy_layout=0
-  String? get exec;
   @override
+  String? get exec;
 
   /// exec_name
   ///
   /// Display current exec name
-  bool get execName;
   @override
+  bool get execName;
 
   /// fan
   ///
   /// Shows the Steam Deck fan rpm
-  bool get fan;
   @override
+  bool get fan;
 
   /// fcat_overlay_width=
   ///
   /// Sets the width of fcat. Default is 24
+  @override
   @JsonStringToInt()
   int get fcatOverlayWidth;
-  @override
 
   /// fcat_screen_edge=
   ///
   /// Decides the edge fcat is displayed on. A value between 1 and 4
+  @override
   @JsonStringToIntOrNull()
   int? get fcatScreenEdge;
-  @override
 
   /// font_file_text
   ///
   /// Change text font. Otherwise font_file is used
-  String? get fontFileText;
   @override
+  String? get fontFileText;
 
   /// font_glyph_ranges
   ///
   /// Specify extra font glyph ranges, comma separated: korean, chinese, chinese_simplified, japanese, cyrillic, thai, vietnamese, latin_ext_a, latin_ext_b. If you experience crashes or text is just squares, reduce font size or glyph ranges
-  String? get fontGlyphRanges;
   @override
+  String? get fontGlyphRanges;
 
   /// font_scale=
   ///
   /// Set global font scale. Default is 1.0
+  @override
   @JsonStringToDouble()
   double get fontScale;
-  @override
 
   /// font_scale_media_player
   ///
   /// Change size of media player text relative to font_size
+  @override
   @JsonStringToDoubleOrNull()
   double? get fontScaleMediaPlayer;
-  @override
 
   /// font_size_text
   ///
   /// Customizeable font size for other text like media metadata. Default is 24
+  @override
   @JsonStringToInt()
   int get fontSizeText;
-  @override
 
   /// fps_only
   ///
   /// Show FPS only. Not meant to be used with other display params
-  bool get fpsOnly;
   @override
+  bool get fpsOnly;
 
   /// fps_sampling_period=
   ///
   /// Time interval between two sampling points for gathering the FPS in milliseconds. Default is 500
+  @override
   @JsonStringToInt()
   int get fpsSamplingPeriod;
-  @override
 
   /// fps_metrics
   ///
   /// Takes a list of decimal values or the value avg, e.g avg,0.001
-  String? get fpsMetrics;
   @override
+  String? get fpsMetrics;
 
   /// frametime
   ///
   /// Display frametime next to FPS text
-  bool get frametime;
   @override
+  bool get frametime;
 
   /// full
   ///
   /// Enable most of the toggleable parameters (currently excludes histogram)
-  bool get full;
   @override
+  bool get full;
 
   /// gpu_color
   ///
   /// Change default colors: gpu_color=RRGGBB
+  @override
   @JsonStringToColorOrNull()
   Color? get gpuColor;
-  @override
 
   /// cpu_color
   ///
   /// Change default colors: cpu_color=RRGGBB
+  @override
   @JsonStringToColorOrNull()
   Color? get cpuColor;
-  @override
 
   /// io_color
   ///
   /// Change default colors: gpu_color=RRGGBB
+  @override
   @JsonStringToColorOrNull()
   Color? get ioColor;
-  @override
 
   /// media_player_color
   ///
   /// Change default colors: gpu_color=RRGGBB
+  @override
   @JsonStringToColorOrNull()
   Color? get mediaPlayerColor;
-  @override
 
   /// hide_fsr_sharpness
   ///
   /// Hides the sharpness info for the fsr option (only available in gamescope)
-  bool get hideFsrSharpness;
   @override
+  bool get hideFsrSharpness;
 
   /// histogram
   ///
   /// Change FPS graph to histogram
-  bool get histogram;
   @override
+  bool get histogram;
 
   /// horizontal_stretch
   ///
   /// Stretches the background to the screens width in horizontal mode
-  bool get horizontalStretch;
   @override
+  bool get horizontalStretch;
 
   /// hud_compact
   ///
   /// Enable a more compact layout
-  bool get hudCompact;
   @override
+  bool get hudCompact;
 
   /// hud_no_margin
   ///
   /// Remove margins around MangoHud
-  bool get hudNoMargin;
   @override
+  bool get hudNoMargin;
 
   /// media_player_format
   ///
   /// Format media player metadata. Add extra text etc. Semi-colon breaks to new line. Defaults to {title};{artist};{album}
-  String? get mediaPlayerFormat;
   @override
+  String? get mediaPlayerFormat;
 
   /// media_player_name
   ///
   /// Force media player DBus service name without the org.mpris.MediaPlayer2 part, like spotify, vlc, audacious or cantata. If none is set, MangoHud tries to switch between currently playing players
-  String? get mediaPlayerName;
   @override
+  String? get mediaPlayerName;
 
   /// media_player
   ///
   /// Show media player metadata
-  bool get mediaPlayer;
   @override
+  bool get mediaPlayer;
 
   /// no_display
   ///
   /// Hide the HUD by default
-  bool get noDisplay;
   @override
+  bool get noDisplay;
 
   /// no_small_font
   ///
   /// Use primary font size for smaller text like units
-  bool get noSmallFont;
   @override
+  bool get noSmallFont;
 
   /// offset_x
   ///
   /// HUD position offsets
-  bool get offsetX;
   @override
+  bool get offsetX;
 
   /// offset_y
   ///
   /// HUD position offsets
-  bool get offsetY;
   @override
+  bool get offsetY;
 
   /// output_file
   ///
   /// Set location and name of the log file
-  String? get outputFile;
   @override
-  @JsonKey(ignore: true)
+  String? get outputFile;
+
+  /// Create a copy of MangoHudModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MangoHudModelImplCopyWith<_$MangoHudModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
