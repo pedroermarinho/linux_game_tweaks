@@ -1,0 +1,114 @@
+{
+  "links": [
+    {
+      "name": "ProtonDB",
+      "author": "bdefore",
+      "description": {
+        "en": "Game compatibility database",
+        "pt-BR": "Base de dados de compatibilidade de jogos"
+      },
+      "url": "https://www.protondb.com/",
+      "url_image": "https://www.protondb.com/sites/protondb/images/site-logo.svg",
+      "flatpak": null
+    },
+    {
+      "name": "Bottles",
+      "author": "bottlesdevs",
+      "description": {
+        "en": "Run Windows software and games on Linux",
+        "pt-BR": "Rode aplicativos e jogos do Windows no Linux"
+      },
+      "url": "https://usebottles.com/",
+      "url_image": "https://usebottles.com/assets/logo-dark.svg",
+      "flatpak": "com.usebottles.bottles"
+    },
+    {
+      "name": "Lutris",
+      "author": "lutris",
+      "description": {
+        "en": "Launch, hubm and game tweaks",
+        "pt-BR": "Lançador, hub e ajustes de jogos"
+      },
+      "url": "https://lutris.net/",
+      "url_image": "https://lutris.net/static/images/logo.png",
+      "flatpak": "net.lutris.Lutris"
+    },
+    {
+      "name": "Wine",
+      "author": "WineHQ",
+      "description": {
+        "en": "Run Windows programs on Linux",
+        "pt-BR": "Rode programas do Windows no Linux"
+      },
+      "url": "https://www.winehq.org/",
+      "url_image": "https://gitlab.winehq.org/uploads/-/system/appearance/header_logo/1/winehq_logo_gitlab_small.png",
+      "flatpak": "org.winehq.Wine"
+    },
+    {
+      "name": "GameMode",
+      "author": "Feral Interactive",
+      "description": {
+        "en": "Optimizes Linux performance for gaming",
+        "pt-BR": "Otimiza o desempenho do Linux para jogos"
+      },
+      "url": "https://github.com/FeralInteractive/gamemode",
+      "url_image": null,
+      "flatpak": null
+    },
+    {
+      "name": "MangoHUD",
+      "author": "flightlessmango",
+      "description": {
+        "en": "In-game performance overlay for Vulkan and OpenGL",
+        "pt-BR": "Overlay de desempenho para Vulkan e OpenGL"
+      },
+      "url": "https://github.com/flightlessmango/MangoHud",
+      "url_image": null,
+      "flatpak": null
+    },
+    {
+      "name": "Are We Anti-Cheat Yet?",
+      "author": "Various Contributors",
+      "description": {
+        "en": "Compatibility database for anti-cheat support on Linux",
+        "pt-BR": "Base de dados de compatibilidade de anti-cheat no Linux"
+      },
+      "url": "https://areweanticheatyet.com/",
+      "url_image": "https://areweanticheatyet.com/icon.webp",
+      "flatpak": null
+    },
+    {
+      "name": "GamingOnLinux",
+      "author": "Liam Dawe",
+      "description": {
+        "en": "News, reviews, and information about Linux gaming",
+        "pt-BR": "Notícias, análises e informações sobre jogos no Linux"
+      },
+      "url": "https://www.gamingonlinux.com/",
+      "url_image": "https://www.gamingonlinux.com/templates/default/images/logos/icon_deck1.png",
+      "flatpak": null
+    },
+    {
+      "name": "Proton GE",
+      "author": "GloriousEggroll",
+      "description": {
+        "en": "Custom build of Proton with additional patches and improvements",
+        "pt-BR": "Versão personalizada do Proton com patches e melhorias adicionais"
+      },
+      "url": "https://github.com/GloriousEggroll/proton-ge-custom",
+      "url_image": "https://avatars.githubusercontent.com/u/11287837?v=4",
+      "flatpak": null
+    },
+    {
+      "name": "Heroic Games Launcher",
+      "author": "Heroic-Games-Launcher",
+      "description": {
+        "en": "Alternative Epic Games and GOG launcher for Linux",
+        "pt-BR": "Lançador alternativo para Epic Games e GOG no Linux"
+      },
+      "url": "https://heroicgameslauncher.com/",
+      "url_image": "https://heroicgameslauncher.com/_next/static/images/logo-23215e07e1919bee380591f74ace6c70.png.webp",
+      "flatpak": "com.heroicgameslauncher.hgl"
+    }
+  ]
+}

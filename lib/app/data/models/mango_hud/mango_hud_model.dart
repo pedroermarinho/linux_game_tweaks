@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:linux_game_tweaks/app/data/enums/position_mango_hud.dart';
-import 'package:linux_game_tweaks/app/data/utils/json_string_to_color.dart';
-import 'package:linux_game_tweaks/app/data/utils/json_string_to_double.dart';
-import 'package:linux_game_tweaks/app/data/utils/json_string_to_int.dart';
-import 'package:linux_game_tweaks/app/data/utils/json_string_to_position_mango_hud.dart';
+import 'package:linux_game_tweaks/app/core/utils/json_string_to_color.dart';
+import 'package:linux_game_tweaks/app/core/utils/json_string_to_double.dart';
+import 'package:linux_game_tweaks/app/core/utils/json_string_to_int.dart';
+import 'package:linux_game_tweaks/app/core/utils/json_string_to_position_mango_hud.dart';
 
 part 'mango_hud_model.freezed.dart';
 part 'mango_hud_model.g.dart';

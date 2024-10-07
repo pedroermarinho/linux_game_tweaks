@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:linux_game_tweaks/app/data/utils/map_dynamic_to_string.dart';
+import 'package:linux_game_tweaks/app/core/utils/map_dynamic_to_string.dart';
 import 'package:vdf/vdf.dart';
 
 part 'steam_library_model.freezed.dart';

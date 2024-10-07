@@ -2,11 +2,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:linux_game_tweaks/app/data/enums/filter_gamescope.dart';
 import 'package:linux_game_tweaks/app/data/enums/orientation_gamescope.dart';
 import 'package:linux_game_tweaks/app/data/enums/scale_gamescope.dart';
-import 'package:linux_game_tweaks/app/data/utils/json_string_to_double.dart';
-import 'package:linux_game_tweaks/app/data/utils/json_string_to_filter_gamescope.dart';
-import 'package:linux_game_tweaks/app/data/utils/json_string_to_int.dart';
-import 'package:linux_game_tweaks/app/data/utils/json_string_to_orientation_gamescope.dart';
-import 'package:linux_game_tweaks/app/data/utils/json_string_to_scale_gamescope.dart';
+import 'package:linux_game_tweaks/app/core/utils/json_string_to_double.dart';
+import 'package:linux_game_tweaks/app/core/utils/json_string_to_filter_gamescope.dart';
+import 'package:linux_game_tweaks/app/core/utils/json_string_to_int.dart';
+import 'package:linux_game_tweaks/app/core/utils/json_string_to_orientation_gamescope.dart';
+import 'package:linux_game_tweaks/app/core/utils/json_string_to_scale_gamescope.dart';
 
 part 'gamescope_model.freezed.dart';
 part 'gamescope_model.g.dart';

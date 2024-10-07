@@ -86,7 +86,7 @@ O projeto ainda está em fase inicial. As telas já funcionais incluem:
 - **Gerar de Código Automático**:
 
   ```bash
-  dart run build_runner build
+  dart run build_runner watch
   ```
 
 

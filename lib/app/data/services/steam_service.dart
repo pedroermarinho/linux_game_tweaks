@@ -7,14 +7,14 @@ import 'package:path/path.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 class SteamService {
-  static final log = Logger('SteamService');
+   final log = Logger('SteamService');
 
-  static final List<String> commonSteamDirs = [
+  final List<String> commonSteamDirs = [
     join('.steam', 'steam'),
     join('.local', 'share', 'Steam'),
   ];
 
-  static bool existSteamAppsDir(String path) {
+   bool existSteamAppsDir(String path) {
     var dir = Directory(path);
     if (!dir.existsSync()) {
       return false;
@@ -24,7 +24,7 @@ class SteamService {
     return exists;
   }
 
-  static List<List<String>> findSteamInstallations() {
+   List<List<String>> findSteamInstallations() {
     var candidates = <String, String>{};
     var steamRoot = join(Directory.current.path, '.steam', 'root');
 
@@ -42,13 +42,13 @@ class SteamService {
     return candidates.entries.map((e) => [e.key, e.value]).toList();
   }
 
-  static List<String>? findSteamPath() {
+   List<String>? findSteamPath() {
     return findSteamInstallations().isNotEmpty
         ? findSteamInstallations()[0]
         : null;
   }
 
-  static String? findLibraryFoldersVDF() {
+   String? findLibraryFoldersVDF() {
     final steamPath = findSteamPath();
     if (steamPath == null) return null;
 
@@ -59,7 +59,7 @@ class SteamService {
         : null;
   }
 
-  static Future<SteamLibraryModel?> parseLibraryFoldersVDF(String path) async {
+   Future<SteamLibraryModel?> parseLibraryFoldersVDF(String path) async {
     try {
       final file = File(path);
       return file.existsSync()
@@ -71,7 +71,7 @@ class SteamService {
     }
   }
 
-  static Future<SteamAppManifestModel?> parseAppManifest(String path) async {
+   Future<SteamAppManifestModel?> parseAppManifest(String path) async {
     try {
       final file = File(path);
       return file.existsSync()
@@ -83,7 +83,7 @@ class SteamService {
     }
   }
 
-  static Future<List<SteamAppManifestModel>> getAppsSteamLibrary() async {
+   Future<List<SteamAppManifestModel>> getAppsSteamLibrary() async {
     final List<SteamAppManifestModel> apps = [];
     final libraryFoldersVDFPath = findLibraryFoldersVDF();
 
@@ -116,12 +116,12 @@ class SteamService {
     return apps;
   }
 
-  static Future<List<SteamAppModel>> getSteamApps() async {
+   Future<List<SteamAppModel>> getSteamApps() async {
     final apps = await getAppsSteamLibrary();
     return Future.wait(apps.map(convertAppManifestToAppModel).toList());
   }
 
-  static Future<SteamAppModel> convertAppManifestToAppModel(
+   Future<SteamAppModel> convertAppManifestToAppModel(
       SteamAppManifestModel appManifest) async {
     return SteamAppModel(
       appId: appManifest.appState.appid,
@@ -132,7 +132,7 @@ class SteamService {
     );
   }
 
-  static Future<SteamAppImagesModel> getIconAppPath(String appId) {
+   Future<SteamAppImagesModel> getIconAppPath(String appId) {
     final steamPath = findSteamPath();
     final rootPath = join(steamPath![0], 'appcache', 'librarycache');
 
@@ -162,12 +162,12 @@ class SteamService {
     });
   }
 
-  static String getSizeOnDisk(SteamAppManifestModel appManifest) {
+   String getSizeOnDisk(SteamAppManifestModel appManifest) {
     final size = int.parse(appManifest.appState.sizeOnDisk);
     return (size / (1024 * 1024 * 1024)).toStringAsFixed(2);
   }
 
-  static Future<void> setup() async {
+   Future<void> setup() async {
     log.info('Configurando SteamService');
     final apps = await getSteamApps();
     log.info('Apps: ${apps.map((e) => e.toString()).join('\n')}');
