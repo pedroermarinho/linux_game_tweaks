@@ -25,8 +25,10 @@ _$LinkModelImpl _$$LinkModelImplFromJson(Map<String, dynamic> json) =>
       description: DescriptionModel.fromJson(
           json['description'] as Map<String, dynamic>),
       url: json['url'] as String,
-      urlImage: json['url_image'] as String?,
-      flatpak: json['flatpak'] as String?,
+      urlImage: json['urlImage'] as String?,
+      flatpak: json['flatpak'] == null
+          ? null
+          : FlatpakModel.fromJson(json['flatpak'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$LinkModelImplToJson(_$LinkModelImpl instance) =>
@@ -35,7 +37,7 @@ Map<String, dynamic> _$$LinkModelImplToJson(_$LinkModelImpl instance) =>
       'author': instance.author,
       'description': instance.description,
       'url': instance.url,
-      'url_image': instance.urlImage,
+      'urlImage': instance.urlImage,
       'flatpak': instance.flatpak,
     };
 

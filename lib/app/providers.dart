@@ -1,5 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:linux_game_tweaks/app/data/repositories/alternative_app_repository.dart';
+import 'package:linux_game_tweaks/app/data/repositories/flatpak_repository.dart';
 import 'package:linux_game_tweaks/app/data/repositories/links_repository.dart';
+import 'package:linux_game_tweaks/app/data/services/flatpak_service.dart';
 import 'package:linux_game_tweaks/app/data/services/links_service.dart';
 import 'package:linux_game_tweaks/app/data/services/mango_hud_service.dart';
 import 'package:linux_game_tweaks/app/data/services/steam_service.dart';
@@ -15,6 +19,7 @@ import 'package:linux_game_tweaks/app/public/mango_hud/visual/visual_mango_hud_c
 final getIt = GetIt.instance;
 
 setupProviders() {
+  getIt.registerLazySingleton(() => Dio());
   getIt.registerLazySingleton(() => MangoHudService());
   getIt.registerLazySingleton(() => CommandStore());
   getIt.registerLazySingleton(() => MangoHudStore(getIt.get()));
@@ -25,6 +30,9 @@ setupProviders() {
   getIt.registerLazySingleton(() => PerformanceMangoHudController(getIt.get()));
   getIt.registerLazySingleton(() => VisualMangoHudController(getIt.get()));
   getIt.registerLazySingleton<LinksRepository>(() => LinksRepositoryImpl());
+  getIt.registerLazySingleton<AlternativeAppRepository>(() => AlternativeAppRepositoryImpl());
   getIt.registerLazySingleton(() => LinksService(getIt.get()));
   getIt.registerLazySingleton(() => SteamService());
+  getIt.registerLazySingleton<FlatpakRepository>(() => FlatpakRepositoryImpl(getIt.get()));
+  getIt.registerLazySingleton<FlatpakService>(() => FlatpakServiceImpl());
 }

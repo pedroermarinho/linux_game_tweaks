@@ -183,9 +183,8 @@ mixin _$LinkModel {
   String get author => throw _privateConstructorUsedError;
   DescriptionModel get description => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
-  @JsonKey(name: 'url_image')
   String? get urlImage => throw _privateConstructorUsedError;
-  String? get flatpak => throw _privateConstructorUsedError;
+  FlatpakModel? get flatpak => throw _privateConstructorUsedError;
 
   /// Serializes this LinkModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -207,10 +206,11 @@ abstract class $LinkModelCopyWith<$Res> {
       String author,
       DescriptionModel description,
       String url,
-      @JsonKey(name: 'url_image') String? urlImage,
-      String? flatpak});
+      String? urlImage,
+      FlatpakModel? flatpak});
 
   $DescriptionModelCopyWith<$Res> get description;
+  $FlatpakModelCopyWith<$Res>? get flatpak;
 }
 
 /// @nodoc
@@ -259,7 +259,7 @@ class _$LinkModelCopyWithImpl<$Res, $Val extends LinkModel>
       flatpak: freezed == flatpak
           ? _value.flatpak
           : flatpak // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as FlatpakModel?,
     ) as $Val);
   }
 
@@ -270,6 +270,20 @@ class _$LinkModelCopyWithImpl<$Res, $Val extends LinkModel>
   $DescriptionModelCopyWith<$Res> get description {
     return $DescriptionModelCopyWith<$Res>(_value.description, (value) {
       return _then(_value.copyWith(description: value) as $Val);
+    });
+  }
+
+  /// Create a copy of LinkModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FlatpakModelCopyWith<$Res>? get flatpak {
+    if (_value.flatpak == null) {
+      return null;
+    }
+
+    return $FlatpakModelCopyWith<$Res>(_value.flatpak!, (value) {
+      return _then(_value.copyWith(flatpak: value) as $Val);
     });
   }
 }
@@ -287,11 +301,13 @@ abstract class _$$LinkModelImplCopyWith<$Res>
       String author,
       DescriptionModel description,
       String url,
-      @JsonKey(name: 'url_image') String? urlImage,
-      String? flatpak});
+      String? urlImage,
+      FlatpakModel? flatpak});
 
   @override
   $DescriptionModelCopyWith<$Res> get description;
+  @override
+  $FlatpakModelCopyWith<$Res>? get flatpak;
 }
 
 /// @nodoc
@@ -338,7 +354,7 @@ class __$$LinkModelImplCopyWithImpl<$Res>
       flatpak: freezed == flatpak
           ? _value.flatpak
           : flatpak // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as FlatpakModel?,
     ));
   }
 }
@@ -351,7 +367,7 @@ class _$LinkModelImpl extends _LinkModel {
       required this.author,
       required this.description,
       required this.url,
-      @JsonKey(name: 'url_image') this.urlImage,
+      this.urlImage,
       this.flatpak})
       : super._();
 
@@ -367,10 +383,9 @@ class _$LinkModelImpl extends _LinkModel {
   @override
   final String url;
   @override
-  @JsonKey(name: 'url_image')
   final String? urlImage;
   @override
-  final String? flatpak;
+  final FlatpakModel? flatpak;
 
   @override
   String toString() {
@@ -419,8 +434,8 @@ abstract class _LinkModel extends LinkModel {
       required final String author,
       required final DescriptionModel description,
       required final String url,
-      @JsonKey(name: 'url_image') final String? urlImage,
-      final String? flatpak}) = _$LinkModelImpl;
+      final String? urlImage,
+      final FlatpakModel? flatpak}) = _$LinkModelImpl;
   _LinkModel._() : super._();
 
   factory _LinkModel.fromJson(Map<String, dynamic> json) =
@@ -435,10 +450,9 @@ abstract class _LinkModel extends LinkModel {
   @override
   String get url;
   @override
-  @JsonKey(name: 'url_image')
   String? get urlImage;
   @override
-  String? get flatpak;
+  FlatpakModel? get flatpak;
 
   /// Create a copy of LinkModel
   /// with the given fields replaced by the non-null parameter values.

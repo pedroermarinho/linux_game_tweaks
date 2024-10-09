@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:linux_game_tweaks/app/data/models/flatpak/flatpak_model.dart';
 
 part 'links_model.freezed.dart';
 part 'links_model.g.dart';
@@ -25,8 +26,8 @@ class LinkModel with _$LinkModel {
     required String author,
     required DescriptionModel description,
     required String url,
-    @JsonKey(name: 'url_image') String? urlImage,
-    String? flatpak,
+    String? urlImage,
+    FlatpakModel? flatpak,
   }) = _LinkModel;
 
   factory LinkModel.fromJson(Map<String, dynamic> json) =>

@@ -1,0 +1,1241 @@
+{
+  "apps": [
+    {
+      "name": "Mozilla Firefox",
+      "regex": [
+        "firefox\\s+setup.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.mozilla.firefox"
+        }
+      ]
+    },
+    {
+      "name": "Internet Explorer",
+      "regex": [
+        "(eie11|ie11).*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.microsoft.Edge"
+        }
+      ]
+    },
+    {
+      "name": "Google Chrome website",
+      "regex": [
+        "chrome.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.google.Chrome"
+        },
+        {
+          "remote": "flathub",
+          "id": "com.google.ChromeDev",
+          "alternative": true
+        },
+        {
+          "remote": "flathub",
+          "id": "org.chromium.Chromium",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Brave Browser",
+      "regex": [
+        "bravebrowsersetup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.brave.Browser"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft Edge",
+      "regex": [
+        "microsoftedgesetup.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.microsoft.Edge"
+        }
+      ]
+    },
+    {
+      "name": "Opera",
+      "regex": [
+        "opera(.*.|)setup.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.opera.Opera"
+        }
+      ]
+    },
+    {
+      "name": "Thunderbird Mail",
+      "regex": [
+        "thunderbird\\s+setup.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.mozilla.Thunderbird"
+        }
+      ]
+    },
+    {
+      "name": "Dropbox",
+      "regex": [
+        "dropbox.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.dropbox.Client"
+        }
+      ]
+    },
+    {
+      "name": "Skype",
+      "regex": [
+        "skype.*.exe",
+        "skype.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.skype.Client"
+        }
+      ]
+    },
+    {
+      "name": "Adobe Reader",
+      "regex": [
+        "reader.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.gnome.Evince",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Adobe Acrobat Reader",
+      "regex": [
+        "acrordr.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.gnome.Evince",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Nitro PDF",
+      "regex": [
+        "nitro_pro.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.libreoffice.LibreOffice",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Spotify",
+      "regex": [
+        "spotifysetup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.spotify.Client"
+        }
+      ]
+    },
+    {
+      "name": "Apple iTunes",
+      "regex": [
+        "itunes.*setup.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "sh.cider.Cider",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Paint.NET",
+      "regex": [
+        "paint.net.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.github.PintaProject.Pinta",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Autodesk SketchBook",
+      "regex": [
+        "sketchbook.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.kde.krita",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "FL Studio",
+      "regex": [
+        "flstudio.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "io.lmms.LMMS",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Ableton Live",
+      "regex": [
+        "ableton\\s+live.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.bitwig.BitwigStudio",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Bitwig Studio",
+      "regex": [
+        "bitwig\\s+studio.*.(exe|msi)",
+        "bitwig-studio.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.bitwig.BitwigStudio"
+        }
+      ]
+    },
+    {
+      "name": "Epic Games Store",
+      "regex": [
+        "epicinstaller.*.msi"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.heroicgameslauncher.hgl",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "GOG Galaxy",
+      "regex": [
+        "gog_galaxy.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.heroicgameslauncher.hgl",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Battle.net",
+      "regex": [
+        "battle.net.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.lutris.Lutris",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Bethesda Launcher",
+      "regex": [
+        "bethesdanetlauncher_setup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.lutris.Lutris",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Origin",
+      "regex": [
+        "originthinsetup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.lutris.Lutris",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Ubisoft Connect",
+      "regex": [
+        "ubisoftconnectinstaller.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.lutris.Lutris",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Itch",
+      "regex": [
+        "itch-setup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "io.itch.itch"
+        }
+      ]
+    },
+    {
+      "name": "Affinity Photo",
+      "regex": [
+        "affinity-photo.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.gimp.GIMP",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Affinity Designer",
+      "regex": [
+        "affinity-designer.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.inkscape.Inkscape",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Affinity Publisher",
+      "regex": [
+        "affinity-publisher.*.exe"
+      ]
+    },
+    {
+      "name": "Cinema 4D",
+      "regex": [
+        "cinema4d.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.blender.Blender",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Steam",
+      "regex": [
+        "steamsetup.*.exe",
+        "steam.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.valvesoftware.Steam"
+        }
+      ]
+    },
+    {
+      "name": "WhatsApp",
+      "regex": [
+        "whatsapp.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.gigitux.youp",
+          "alternative": true
+        },
+        {
+          "remote": "flathub",
+          "id": "com.ktechpit.whatsie",
+          "alternative": true
+        },
+        {
+          "remote": "flathub",
+          "id": "com.rtosta.zapzap",
+          "alternative": true
+        },
+        {
+          "remote": "flathub",
+          "id": "com.meetfranz.Franz",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Canva",
+      "regex": [
+        "canva.*.setup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.jgraph.drawio.desktop",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Amazon Kindle",
+      "regex": [
+        "kindleforpc.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.calibre_ebook.calibre",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "VLC",
+      "regex": [
+        "vlc.*.(exe|msi)",
+        "vlc.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.videolan.VLC"
+        }
+      ]
+    },
+    {
+      "name": "1Password",
+      "regex": [
+        "1passwordsetup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.bitwarden.desktop",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "FileZilla",
+      "regex": [
+        "filezilla.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.filezillaproject.Filezilla"
+        }
+      ]
+    },
+    {
+      "name": "Kodi",
+      "regex": [
+        "kodi.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "tv.kodi.Kodi"
+        }
+      ]
+    },
+    {
+      "name": "µTorrent",
+      "regex": [
+        "(utorrent|utweb).*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.transmissionbt.Transmission",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "BitTorrent",
+      "regex": [
+        "(bittorrent|btweb).*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.transmissionbt.Transmission",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "qBittorrent",
+      "regex": [
+        "qbittorrent.*.setup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.qbittorrent.qBittorrent"
+        }
+      ]
+    },
+    {
+      "name": "Calibre",
+      "regex": [
+        "calibre.*.msi"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.calibre_ebook.calibre"
+        }
+      ]
+    },
+    {
+      "name": "Telegram",
+      "regex": [
+        "tsetup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.telegram.desktop"
+        }
+      ]
+    },
+    {
+      "name": "Discord",
+      "regex": [
+        "discordsetup.*.exe",
+        "discord.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.discordapp.Discord"
+        }
+      ]
+    },
+    {
+      "name": "TeamViewer website",
+      "regex": [
+        "teamviewer_setup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.anydesk.Anydesk",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Zoom",
+      "regex": [
+        "zoom.*.(exe|msi)",
+        "zoom.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "us.zoom.Zoom"
+        }
+      ]
+    },
+    {
+      "name": "Slack",
+      "regex": [
+        "slacksetup.*.exe",
+        "slack-desktop.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.slack.Slack"
+        }
+      ]
+    },
+    {
+      "name": "AnyDesk",
+      "regex": [
+        "anydesk.*.(exe|msi)",
+        "anydesk.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.anydesk.Anydesk"
+        }
+      ]
+    },
+    {
+      "name": "Notepad++",
+      "regex": [
+        "npp.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.github.dail8859.NotepadNext",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "WinRAR",
+      "regex": [
+        "winrar.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "io.github.peazip.PeaZip",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "WinZip",
+      "regex": [
+        "winzip.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "io.github.peazip.PeaZip",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "7-Zip",
+      "regex": [
+        "7z.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "io.github.peazip.PeaZip",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "PuTTY",
+      "regex": [
+        "putty(.*.installer|).*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "uk.org.greenend.chiark.sgtatham.putty"
+        }
+      ]
+    },
+    {
+      "name": "Minecraft",
+      "regex": [
+        "minecraft.*.(exe|msi)",
+        "minecraft.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.mojang.Minecraft"
+        }
+      ]
+    },
+    {
+      "name": "Scratch",
+      "regex": [
+        "scratch.*.setup.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "edu.mit.Scratch"
+        }
+      ]
+    },
+    {
+      "name": "the League of Legends installer",
+      "regex": [
+        ".*league\\s+of\\s+legends.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.lutris.Lutris",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "the Overwatch installer",
+      "regex": [
+        "overwatch.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.lutris.Lutris",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "the Warframe installer",
+      "regex": [
+        "warframe.*.msi"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.lutris.Lutris",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "the World of Warcraft installer",
+      "regex": [
+        "world-of-warcraft.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.lutris.Lutris",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Roblox Player Launcher",
+      "regex": [
+        "robloxplayerlauncher.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.brinkervii.grapejuice",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Roblox Studio Launcher",
+      "regex": [
+        "robloxstudiolauncher.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.brinkervii.grapejuice",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Razer Synapse",
+      "regex": [
+        "razersynapseinstaller.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "xyz.z3ntu.razergenie",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Todoist",
+      "regex": [
+        "todoist.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.todoist.Todoist"
+        }
+      ]
+    },
+    {
+      "name": "Brackets",
+      "regex": [
+        "brackets.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "io.brackets.Brackets"
+        }
+      ]
+    },
+    {
+      "name": "Visual Studio",
+      "regex": [
+        "visualstudiosetup.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.jetbrains.Rider",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "OBS Studio",
+      "regex": [
+        "obs-studio-.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.obsproject.Studio"
+        }
+      ]
+    },
+    {
+      "name": "Android Studio",
+      "regex": [
+        "android-studio-.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.google.AndroidStudio"
+        }
+      ]
+    },
+    {
+      "name": "Arduino IDE",
+      "regex": [
+        "arduino-ide.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "cc.arduino.IDE2"
+        }
+      ]
+    },
+    {
+      "name": "Blender",
+      "regex": [
+        "blender-.*.msi"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.blender.Blender"
+        }
+      ]
+    },
+    {
+      "name": "Bitcoin Core",
+      "regex": [
+        "bitcoin-.*.-setup.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.bitcoincore.bitcoin-qt"
+        }
+      ]
+    },
+    {
+      "name": "Audacity",
+      "regex": [
+        "audacity-win-.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.audacityteam.Audacity"
+        }
+      ]
+    },
+    {
+      "regex": [
+        ".*\\b(avast|avg|avira|kaspersky|mcaffe|malwarebytes|norton|sophos).*.(exe|msi)"
+      ]
+    },
+    {
+      "regex": [
+        ".*flash.*player.*.exe",
+        "flash-player.*"
+      ]
+    },
+    {
+      "name": "RetroArch",
+      "regex": [
+        "retroarch-.*.-setup.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.libretro.RetroArch"
+        }
+      ]
+    },
+    {
+      "name": "PCSX2",
+      "regex": [
+        "pcsx2.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.pcsx2.PCSX2"
+        }
+      ]
+    },
+    {
+      "name": "yuzu",
+      "regex": [
+        "yuzu.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.yuzu_emu.yuzu"
+        }
+      ]
+    },
+    {
+      "name": "Dolphin Emulator",
+      "regex": [
+        "dolphin.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.DolphinEmu.dolphin-emu"
+        }
+      ]
+    },
+    {
+      "name": "PPSSPP",
+      "regex": [
+        "ppsspp.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.ppsspp.PPSSPP"
+        }
+      ]
+    },
+    {
+      "name": "RPCS3",
+      "regex": [
+        "rpcs3.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "net.rpcs3.RPCS3"
+        }
+      ]
+    },
+    {
+      "name": "Citra",
+      "regex": [
+        "citra-setup-windows.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.citra_emu.citra"
+        }
+      ]
+    },
+    {
+      "name": "DuckStation",
+      "regex": [
+        "duckstation-qt.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.duckstation.DuckStation"
+        }
+      ]
+    },
+    {
+      "name": "MAME",
+      "regex": [
+        "mame.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.mamedev.MAME"
+        }
+      ]
+    },
+    {
+      "name": "Snes9x",
+      "regex": [
+        "snes9x.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.snes9x.Snes9x"
+        }
+      ]
+    },
+    {
+      "name": "Xemu",
+      "regex": [
+        "xemu.*.exe",
+        "xemu.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "app.xemu.xemu"
+        }
+      ]
+    },
+    {
+      "name": "Project64",
+      "regex": [
+        "Setup Project64.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "io.github.simple64.simple64",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Visual Studio Code",
+      "regex": [
+        "vscodeusersetup.*.exe",
+        "code.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.visualstudio.code."
+        }
+      ]
+    },
+    {
+      "name": "GitHub Desktop",
+      "regex": [
+        "githubdesktopsetup.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "io.github.shiftey.Desktop"
+        }
+      ]
+    },
+    {
+      "name": "Tor Browser",
+      "regex": [
+        "tor-browser.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.torproject.torbrowser-launcher"
+        }
+      ]
+    },
+    {
+      "name": "UltiMaker Cura",
+      "regex": [
+        "ultimaker-cura.*.exe",
+        "ultimaker-cura.*.linux.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.ultimaker.cura"
+        }
+      ]
+    },
+    {
+      "name": "MuseScore",
+      "regex": [
+        "musescore.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.musescore.MuseScore"
+        }
+      ]
+    },
+    {
+      "name": "Proton VPN",
+      "regex": [
+        "protonvpn.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.protonvpn.www"
+        }
+      ]
+    },
+    {
+      "name": "Adobe Photoshop CS6 installer",
+      "regex": [
+        "photoshop.*.cs6.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.playonlinux.PlayOnLinux4",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Adobe Illustrator CS6 installer",
+      "regex": [
+        "illustrator.*.cs6.*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.playonlinux.PlayOnLinux4",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "Apache OpenOffice",
+      "regex": [
+        "apache_openoffice.*.exe",
+        "openoffice.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.libreoffice.LibreOffice",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "LibreOffice",
+      "regex": [
+        "libreoffice.*.msi",
+        "libreoffice.*"
+      ]
+    },
+    {
+      "name": "ONLYOFFICE",
+      "regex": [
+        "desktopeditors.*.(exe|msi)",
+        "onlyoffice-desktopeditors.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.onlyoffice.desktopeditors"
+        },
+        {
+          "remote": "flathub",
+          "id": "org.libreoffice.LibreOffice",
+          "alternative": true
+        }
+      ]
+    },
+    {
+      "name": "WPS Office",
+      "regex": [
+        "wps_office_inst.*.(exe|msi)"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "com.wps.Office"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft Windows",
+      "regex": [
+        "(windows.*(setup|install)|mediacreationtool).*.exe"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.gnome.Boxes",
+          "alternative": true
+        }
+      ]
+    }
+  ]
+}
