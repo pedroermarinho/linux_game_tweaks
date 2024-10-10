@@ -8,6 +8,7 @@ abstract class FlatpakService {
   Stream<int> install(FlatpakModel flatpak);
   Stream<int> uninstall(FlatpakModel flatpak);
   Future<bool> isInstalled(FlatpakModel flatpak);
+  Future<void> open(FlatpakModel flatpak);
 }
 
 class FlatpakServiceImpl implements FlatpakService {
@@ -114,10 +115,17 @@ class FlatpakServiceImpl implements FlatpakService {
     throw Exception('$message (Exit code: $exitCode)');
   }
 
-  /// Executa uma operação de instalação/desinstalação com logs de progresso.
-  Future<void> _runWithLogging(Stream<int> stream, String action) async {
-    await for (final progress in stream) {
-      _logger.info('$action Progress: $progress%');
+  @override
+  Future<void> open(FlatpakModel flatpak) async {
+    // open flatpak
+    _logger.info('Opening flatpak ${flatpak.id}');
+
+    final process = await Process.run(_flatpakCommand, ['run', flatpak.id]);
+
+    if (process.exitCode != 0) {
+      _logAndThrowError('Error opening flatpak', process.exitCode, process.stderr);
     }
+
   }
+
 }

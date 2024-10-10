@@ -6,6 +6,7 @@ import 'package:linux_game_tweaks/app/data/repositories/links_repository.dart';
 import 'package:linux_game_tweaks/app/data/services/flatpak_service.dart';
 import 'package:linux_game_tweaks/app/data/services/links_service.dart';
 import 'package:linux_game_tweaks/app/data/services/mango_hud_service.dart';
+import 'package:linux_game_tweaks/app/data/services/open_app_service.dart';
 import 'package:linux_game_tweaks/app/data/services/steam_service.dart';
 import 'package:linux_game_tweaks/app/data/store/command_store.dart';
 import 'package:linux_game_tweaks/app/data/store/mango_hud_store.dart';
@@ -34,5 +35,6 @@ setupProviders() {
   getIt.registerLazySingleton(() => LinksService(getIt.get()));
   getIt.registerLazySingleton(() => SteamService());
   getIt.registerLazySingleton<FlatpakRepository>(() => FlatpakRepositoryImpl(getIt.get()));
-  getIt.registerLazySingleton<FlatpakService>(() => FlatpakServiceImpl());
+  getIt.registerLazySingleton<FlatpakService> (() => FlatpakServiceImpl());
+  getIt.registerLazySingleton<OpenAppService> (() => OpenAppServiceImpl(getIt.get()));
 }

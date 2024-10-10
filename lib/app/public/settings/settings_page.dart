@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:linux_game_tweaks/app/core/widgets/SettingsPageWidget.dart';
-import 'package:linux_game_tweaks/app/core/widgets/SettingsSectionWidget.dart';
-import 'package:linux_game_tweaks/app/core/widgets/YaruSwitchRowWidget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/settings_page_widget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/settings_section_widget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/yaru_switch_row_widget.dart';
 import 'package:linux_game_tweaks/app/data/store/preview_mode_store.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:yaru/widgets.dart';

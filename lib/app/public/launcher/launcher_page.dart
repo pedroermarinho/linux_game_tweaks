@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:linux_game_tweaks/app/core/widgets/SettingsPageWidget.dart';
-import 'package:linux_game_tweaks/app/core/widgets/SettingsSectionWidget.dart';
-import 'package:linux_game_tweaks/app/core/widgets/YaruSwitchRowWidget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/settings_page_widget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/settings_section_widget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/yaru_switch_row_widget.dart';
 import 'package:linux_game_tweaks/app/data/store/command_store.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:yaru/icons.dart';
@@ -19,9 +19,8 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
         title: Text('Lançador de aplicativos'),
         leading: !Navigator.of(context).canPop()
             ? null
-            : YaruOptionButton.new(
+            : YaruBackButton(
                 onPressed: () => Navigator.of(context).pop(),
-                child: const Icon(YaruIcons.arrow_left, size: 25),
               ),
       ),
       body: SettingsPageWidget(
@@ -94,8 +93,7 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
                 title: Text("Comando personalizado prefixado"),
                 trailing: Expanded(
                   child: TextField(
-                    controller:
-                        store.prefix != null ? null : TextEditingController(),
+                    controller: store.prefix != null ? null : TextEditingController(),
                     onChanged: store.setCommandPrefix,
                   ),
                 ),
@@ -104,8 +102,7 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
                 title: Text("Comando personalizado sufixado"),
                 trailing: Expanded(
                   child: TextField(
-                    controller:
-                        store.suffix != null ? null : TextEditingController(),
+                    controller: store.suffix != null ? null : TextEditingController(),
                     onChanged: store.setCommandSuffix,
                   ),
                 ),
@@ -119,8 +116,7 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
                 title: Text("Limpar comando"),
                 trailing: YaruOptionButton(
                   onPressed: store.clearCommand,
-                  child: const Icon(YaruIcons.trash_filled,
-                      color: Colors.redAccent),
+                  child: const Icon(YaruIcons.trash_filled, color: Colors.redAccent),
                 ),
               ),
               YaruTile(
@@ -139,8 +135,7 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(store.messageError ?? "Erro desconhecido"),
-                      Text(store.messageErrorDetails ??
-                          "Detalhes do erro desconhecidos"),
+                      Text(store.messageErrorDetails ?? "Detalhes do erro desconhecidos"),
                     ],
                   ),
                 ),

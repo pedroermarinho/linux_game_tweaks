@@ -21,24 +21,26 @@ AppstreamModel _$AppstreamModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AppstreamModel {
   String get type => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  List<ScreenshotModel> get screenshots => throw _privateConstructorUsedError;
-  List<ReleaseModel> get releases => throw _privateConstructorUsedError;
-  ContentRatingModel get contentRating => throw _privateConstructorUsedError;
-  UrlsModel get urls => throw _privateConstructorUsedError;
-  String get icon => throw _privateConstructorUsedError;
-  List<IconModel> get icons => throw _privateConstructorUsedError;
-  MetadataModel get metadata => throw _privateConstructorUsedError;
-  List<String> get developers => throw _privateConstructorUsedError;
+  String get description =>
+      throw _privateConstructorUsedError; // required List<ScreenshotModel> screenshots,
+// required List<ReleaseModel> releases,
+// @JsonKey(name: "content_rating") required ContentRatingModel contentRating,
+// required UrlsModel urls,
+  String get icon =>
+      throw _privateConstructorUsedError; // required List<IconModel> icons,
+// required MetadataModel metadata,
+// required List<String> developers,
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get summary => throw _privateConstructorUsedError;
-  String get projectLicense => throw _privateConstructorUsedError;
-  String get developerName => throw _privateConstructorUsedError;
-  LaunchableModel get launchable => throw _privateConstructorUsedError;
-  List<String> get categories => throw _privateConstructorUsedError;
-  List<String> get provides => throw _privateConstructorUsedError;
-  BundleModel get bundle => throw _privateConstructorUsedError;
+  String get summary =>
+      throw _privateConstructorUsedError; // @JsonKey(name: "roject_license") required String projectLicense,
+  @JsonKey(name: "developer_name")
+  String get developerName =>
+      throw _privateConstructorUsedError; // required LaunchableModel launchable,
+// required List<String> categories,
+// required List<String> provides,
+// required BundleModel bundle,
+  @JsonKey(name: "is_free_license")
   bool get isFreeLicense => throw _privateConstructorUsedError;
 
   /// Serializes this AppstreamModel to a JSON map.
@@ -60,30 +62,12 @@ abstract class $AppstreamModelCopyWith<$Res> {
   $Res call(
       {String type,
       String description,
-      List<ScreenshotModel> screenshots,
-      List<ReleaseModel> releases,
-      ContentRatingModel contentRating,
-      UrlsModel urls,
       String icon,
-      List<IconModel> icons,
-      MetadataModel metadata,
-      List<String> developers,
       String id,
       String name,
       String summary,
-      String projectLicense,
-      String developerName,
-      LaunchableModel launchable,
-      List<String> categories,
-      List<String> provides,
-      BundleModel bundle,
-      bool isFreeLicense});
-
-  $ContentRatingModelCopyWith<$Res> get contentRating;
-  $UrlsModelCopyWith<$Res> get urls;
-  $MetadataModelCopyWith<$Res> get metadata;
-  $LaunchableModelCopyWith<$Res> get launchable;
-  $BundleModelCopyWith<$Res> get bundle;
+      @JsonKey(name: "developer_name") String developerName,
+      @JsonKey(name: "is_free_license") bool isFreeLicense});
 }
 
 /// @nodoc
@@ -103,23 +87,11 @@ class _$AppstreamModelCopyWithImpl<$Res, $Val extends AppstreamModel>
   $Res call({
     Object? type = null,
     Object? description = null,
-    Object? screenshots = null,
-    Object? releases = null,
-    Object? contentRating = null,
-    Object? urls = null,
     Object? icon = null,
-    Object? icons = null,
-    Object? metadata = null,
-    Object? developers = null,
     Object? id = null,
     Object? name = null,
     Object? summary = null,
-    Object? projectLicense = null,
     Object? developerName = null,
-    Object? launchable = null,
-    Object? categories = null,
-    Object? provides = null,
-    Object? bundle = null,
     Object? isFreeLicense = null,
   }) {
     return _then(_value.copyWith(
@@ -131,38 +103,10 @@ class _$AppstreamModelCopyWithImpl<$Res, $Val extends AppstreamModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      screenshots: null == screenshots
-          ? _value.screenshots
-          : screenshots // ignore: cast_nullable_to_non_nullable
-              as List<ScreenshotModel>,
-      releases: null == releases
-          ? _value.releases
-          : releases // ignore: cast_nullable_to_non_nullable
-              as List<ReleaseModel>,
-      contentRating: null == contentRating
-          ? _value.contentRating
-          : contentRating // ignore: cast_nullable_to_non_nullable
-              as ContentRatingModel,
-      urls: null == urls
-          ? _value.urls
-          : urls // ignore: cast_nullable_to_non_nullable
-              as UrlsModel,
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as String,
-      icons: null == icons
-          ? _value.icons
-          : icons // ignore: cast_nullable_to_non_nullable
-              as List<IconModel>,
-      metadata: null == metadata
-          ? _value.metadata
-          : metadata // ignore: cast_nullable_to_non_nullable
-              as MetadataModel,
-      developers: null == developers
-          ? _value.developers
-          : developers // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -175,85 +119,15 @@ class _$AppstreamModelCopyWithImpl<$Res, $Val extends AppstreamModel>
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as String,
-      projectLicense: null == projectLicense
-          ? _value.projectLicense
-          : projectLicense // ignore: cast_nullable_to_non_nullable
-              as String,
       developerName: null == developerName
           ? _value.developerName
           : developerName // ignore: cast_nullable_to_non_nullable
               as String,
-      launchable: null == launchable
-          ? _value.launchable
-          : launchable // ignore: cast_nullable_to_non_nullable
-              as LaunchableModel,
-      categories: null == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      provides: null == provides
-          ? _value.provides
-          : provides // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      bundle: null == bundle
-          ? _value.bundle
-          : bundle // ignore: cast_nullable_to_non_nullable
-              as BundleModel,
       isFreeLicense: null == isFreeLicense
           ? _value.isFreeLicense
           : isFreeLicense // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
-  }
-
-  /// Create a copy of AppstreamModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ContentRatingModelCopyWith<$Res> get contentRating {
-    return $ContentRatingModelCopyWith<$Res>(_value.contentRating, (value) {
-      return _then(_value.copyWith(contentRating: value) as $Val);
-    });
-  }
-
-  /// Create a copy of AppstreamModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UrlsModelCopyWith<$Res> get urls {
-    return $UrlsModelCopyWith<$Res>(_value.urls, (value) {
-      return _then(_value.copyWith(urls: value) as $Val);
-    });
-  }
-
-  /// Create a copy of AppstreamModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MetadataModelCopyWith<$Res> get metadata {
-    return $MetadataModelCopyWith<$Res>(_value.metadata, (value) {
-      return _then(_value.copyWith(metadata: value) as $Val);
-    });
-  }
-
-  /// Create a copy of AppstreamModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LaunchableModelCopyWith<$Res> get launchable {
-    return $LaunchableModelCopyWith<$Res>(_value.launchable, (value) {
-      return _then(_value.copyWith(launchable: value) as $Val);
-    });
-  }
-
-  /// Create a copy of AppstreamModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $BundleModelCopyWith<$Res> get bundle {
-    return $BundleModelCopyWith<$Res>(_value.bundle, (value) {
-      return _then(_value.copyWith(bundle: value) as $Val);
-    });
   }
 }
 
@@ -268,35 +142,12 @@ abstract class _$$AppstreamModelImplCopyWith<$Res>
   $Res call(
       {String type,
       String description,
-      List<ScreenshotModel> screenshots,
-      List<ReleaseModel> releases,
-      ContentRatingModel contentRating,
-      UrlsModel urls,
       String icon,
-      List<IconModel> icons,
-      MetadataModel metadata,
-      List<String> developers,
       String id,
       String name,
       String summary,
-      String projectLicense,
-      String developerName,
-      LaunchableModel launchable,
-      List<String> categories,
-      List<String> provides,
-      BundleModel bundle,
-      bool isFreeLicense});
-
-  @override
-  $ContentRatingModelCopyWith<$Res> get contentRating;
-  @override
-  $UrlsModelCopyWith<$Res> get urls;
-  @override
-  $MetadataModelCopyWith<$Res> get metadata;
-  @override
-  $LaunchableModelCopyWith<$Res> get launchable;
-  @override
-  $BundleModelCopyWith<$Res> get bundle;
+      @JsonKey(name: "developer_name") String developerName,
+      @JsonKey(name: "is_free_license") bool isFreeLicense});
 }
 
 /// @nodoc
@@ -314,23 +165,11 @@ class __$$AppstreamModelImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? description = null,
-    Object? screenshots = null,
-    Object? releases = null,
-    Object? contentRating = null,
-    Object? urls = null,
     Object? icon = null,
-    Object? icons = null,
-    Object? metadata = null,
-    Object? developers = null,
     Object? id = null,
     Object? name = null,
     Object? summary = null,
-    Object? projectLicense = null,
     Object? developerName = null,
-    Object? launchable = null,
-    Object? categories = null,
-    Object? provides = null,
-    Object? bundle = null,
     Object? isFreeLicense = null,
   }) {
     return _then(_$AppstreamModelImpl(
@@ -342,38 +181,10 @@ class __$$AppstreamModelImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      screenshots: null == screenshots
-          ? _value._screenshots
-          : screenshots // ignore: cast_nullable_to_non_nullable
-              as List<ScreenshotModel>,
-      releases: null == releases
-          ? _value._releases
-          : releases // ignore: cast_nullable_to_non_nullable
-              as List<ReleaseModel>,
-      contentRating: null == contentRating
-          ? _value.contentRating
-          : contentRating // ignore: cast_nullable_to_non_nullable
-              as ContentRatingModel,
-      urls: null == urls
-          ? _value.urls
-          : urls // ignore: cast_nullable_to_non_nullable
-              as UrlsModel,
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as String,
-      icons: null == icons
-          ? _value._icons
-          : icons // ignore: cast_nullable_to_non_nullable
-              as List<IconModel>,
-      metadata: null == metadata
-          ? _value.metadata
-          : metadata // ignore: cast_nullable_to_non_nullable
-              as MetadataModel,
-      developers: null == developers
-          ? _value._developers
-          : developers // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -386,30 +197,10 @@ class __$$AppstreamModelImplCopyWithImpl<$Res>
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as String,
-      projectLicense: null == projectLicense
-          ? _value.projectLicense
-          : projectLicense // ignore: cast_nullable_to_non_nullable
-              as String,
       developerName: null == developerName
           ? _value.developerName
           : developerName // ignore: cast_nullable_to_non_nullable
               as String,
-      launchable: null == launchable
-          ? _value.launchable
-          : launchable // ignore: cast_nullable_to_non_nullable
-              as LaunchableModel,
-      categories: null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      provides: null == provides
-          ? _value._provides
-          : provides // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      bundle: null == bundle
-          ? _value.bundle
-          : bundle // ignore: cast_nullable_to_non_nullable
-              as BundleModel,
       isFreeLicense: null == isFreeLicense
           ? _value.isFreeLicense
           : isFreeLicense // ignore: cast_nullable_to_non_nullable
@@ -424,31 +215,13 @@ class _$AppstreamModelImpl extends _AppstreamModel {
   _$AppstreamModelImpl(
       {required this.type,
       required this.description,
-      required final List<ScreenshotModel> screenshots,
-      required final List<ReleaseModel> releases,
-      required this.contentRating,
-      required this.urls,
       required this.icon,
-      required final List<IconModel> icons,
-      required this.metadata,
-      required final List<String> developers,
       required this.id,
       required this.name,
       required this.summary,
-      required this.projectLicense,
-      required this.developerName,
-      required this.launchable,
-      required final List<String> categories,
-      required final List<String> provides,
-      required this.bundle,
-      required this.isFreeLicense})
-      : _screenshots = screenshots,
-        _releases = releases,
-        _icons = icons,
-        _developers = developers,
-        _categories = categories,
-        _provides = provides,
-        super._();
+      @JsonKey(name: "developer_name") required this.developerName,
+      @JsonKey(name: "is_free_license") required this.isFreeLicense})
+      : super._();
 
   factory _$AppstreamModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppstreamModelImplFromJson(json);
@@ -457,82 +230,36 @@ class _$AppstreamModelImpl extends _AppstreamModel {
   final String type;
   @override
   final String description;
-  final List<ScreenshotModel> _screenshots;
-  @override
-  List<ScreenshotModel> get screenshots {
-    if (_screenshots is EqualUnmodifiableListView) return _screenshots;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_screenshots);
-  }
-
-  final List<ReleaseModel> _releases;
-  @override
-  List<ReleaseModel> get releases {
-    if (_releases is EqualUnmodifiableListView) return _releases;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_releases);
-  }
-
-  @override
-  final ContentRatingModel contentRating;
-  @override
-  final UrlsModel urls;
+// required List<ScreenshotModel> screenshots,
+// required List<ReleaseModel> releases,
+// @JsonKey(name: "content_rating") required ContentRatingModel contentRating,
+// required UrlsModel urls,
   @override
   final String icon;
-  final List<IconModel> _icons;
-  @override
-  List<IconModel> get icons {
-    if (_icons is EqualUnmodifiableListView) return _icons;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_icons);
-  }
-
-  @override
-  final MetadataModel metadata;
-  final List<String> _developers;
-  @override
-  List<String> get developers {
-    if (_developers is EqualUnmodifiableListView) return _developers;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_developers);
-  }
-
+// required List<IconModel> icons,
+// required MetadataModel metadata,
+// required List<String> developers,
   @override
   final String id;
   @override
   final String name;
   @override
   final String summary;
+// @JsonKey(name: "roject_license") required String projectLicense,
   @override
-  final String projectLicense;
-  @override
+  @JsonKey(name: "developer_name")
   final String developerName;
+// required LaunchableModel launchable,
+// required List<String> categories,
+// required List<String> provides,
+// required BundleModel bundle,
   @override
-  final LaunchableModel launchable;
-  final List<String> _categories;
-  @override
-  List<String> get categories {
-    if (_categories is EqualUnmodifiableListView) return _categories;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categories);
-  }
-
-  final List<String> _provides;
-  @override
-  List<String> get provides {
-    if (_provides is EqualUnmodifiableListView) return _provides;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_provides);
-  }
-
-  @override
-  final BundleModel bundle;
-  @override
+  @JsonKey(name: "is_free_license")
   final bool isFreeLicense;
 
   @override
   String toString() {
-    return 'AppstreamModel(type: $type, description: $description, screenshots: $screenshots, releases: $releases, contentRating: $contentRating, urls: $urls, icon: $icon, icons: $icons, metadata: $metadata, developers: $developers, id: $id, name: $name, summary: $summary, projectLicense: $projectLicense, developerName: $developerName, launchable: $launchable, categories: $categories, provides: $provides, bundle: $bundle, isFreeLicense: $isFreeLicense)';
+    return 'AppstreamModel(type: $type, description: $description, icon: $icon, id: $id, name: $name, summary: $summary, developerName: $developerName, isFreeLicense: $isFreeLicense)';
   }
 
   @override
@@ -543,60 +270,20 @@ class _$AppstreamModelImpl extends _AppstreamModel {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            const DeepCollectionEquality()
-                .equals(other._screenshots, _screenshots) &&
-            const DeepCollectionEquality().equals(other._releases, _releases) &&
-            (identical(other.contentRating, contentRating) ||
-                other.contentRating == contentRating) &&
-            (identical(other.urls, urls) || other.urls == urls) &&
             (identical(other.icon, icon) || other.icon == icon) &&
-            const DeepCollectionEquality().equals(other._icons, _icons) &&
-            (identical(other.metadata, metadata) ||
-                other.metadata == metadata) &&
-            const DeepCollectionEquality()
-                .equals(other._developers, _developers) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.summary, summary) || other.summary == summary) &&
-            (identical(other.projectLicense, projectLicense) ||
-                other.projectLicense == projectLicense) &&
             (identical(other.developerName, developerName) ||
                 other.developerName == developerName) &&
-            (identical(other.launchable, launchable) ||
-                other.launchable == launchable) &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories) &&
-            const DeepCollectionEquality().equals(other._provides, _provides) &&
-            (identical(other.bundle, bundle) || other.bundle == bundle) &&
             (identical(other.isFreeLicense, isFreeLicense) ||
                 other.isFreeLicense == isFreeLicense));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        type,
-        description,
-        const DeepCollectionEquality().hash(_screenshots),
-        const DeepCollectionEquality().hash(_releases),
-        contentRating,
-        urls,
-        icon,
-        const DeepCollectionEquality().hash(_icons),
-        metadata,
-        const DeepCollectionEquality().hash(_developers),
-        id,
-        name,
-        summary,
-        projectLicense,
-        developerName,
-        launchable,
-        const DeepCollectionEquality().hash(_categories),
-        const DeepCollectionEquality().hash(_provides),
-        bundle,
-        isFreeLicense
-      ]);
+  int get hashCode => Object.hash(runtimeType, type, description, icon, id,
+      name, summary, developerName, isFreeLicense);
 
   /// Create a copy of AppstreamModel
   /// with the given fields replaced by the non-null parameter values.
@@ -619,23 +306,12 @@ abstract class _AppstreamModel extends AppstreamModel {
   factory _AppstreamModel(
       {required final String type,
       required final String description,
-      required final List<ScreenshotModel> screenshots,
-      required final List<ReleaseModel> releases,
-      required final ContentRatingModel contentRating,
-      required final UrlsModel urls,
       required final String icon,
-      required final List<IconModel> icons,
-      required final MetadataModel metadata,
-      required final List<String> developers,
       required final String id,
       required final String name,
       required final String summary,
-      required final String projectLicense,
-      required final String developerName,
-      required final LaunchableModel launchable,
-      required final List<String> categories,
-      required final List<String> provides,
-      required final BundleModel bundle,
+      @JsonKey(name: "developer_name") required final String developerName,
+      @JsonKey(name: "is_free_license")
       required final bool isFreeLicense}) = _$AppstreamModelImpl;
   _AppstreamModel._() : super._();
 
@@ -645,42 +321,29 @@ abstract class _AppstreamModel extends AppstreamModel {
   @override
   String get type;
   @override
-  String get description;
+  String get description; // required List<ScreenshotModel> screenshots,
+// required List<ReleaseModel> releases,
+// @JsonKey(name: "content_rating") required ContentRatingModel contentRating,
+// required UrlsModel urls,
   @override
-  List<ScreenshotModel> get screenshots;
-  @override
-  List<ReleaseModel> get releases;
-  @override
-  ContentRatingModel get contentRating;
-  @override
-  UrlsModel get urls;
-  @override
-  String get icon;
-  @override
-  List<IconModel> get icons;
-  @override
-  MetadataModel get metadata;
-  @override
-  List<String> get developers;
+  String get icon; // required List<IconModel> icons,
+// required MetadataModel metadata,
+// required List<String> developers,
   @override
   String get id;
   @override
   String get name;
   @override
-  String get summary;
+  String
+      get summary; // @JsonKey(name: "roject_license") required String projectLicense,
   @override
-  String get projectLicense;
+  @JsonKey(name: "developer_name")
+  String get developerName; // required LaunchableModel launchable,
+// required List<String> categories,
+// required List<String> provides,
+// required BundleModel bundle,
   @override
-  String get developerName;
-  @override
-  LaunchableModel get launchable;
-  @override
-  List<String> get categories;
-  @override
-  List<String> get provides;
-  @override
-  BundleModel get bundle;
-  @override
+  @JsonKey(name: "is_free_license")
   bool get isFreeLicense;
 
   /// Create a copy of AppstreamModel

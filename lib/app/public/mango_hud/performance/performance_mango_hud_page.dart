@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:linux_game_tweaks/app/core/widgets/SectionDescriptionWidget.dart';
-import 'package:linux_game_tweaks/app/core/widgets/SettingsPageWidget.dart';
-import 'package:linux_game_tweaks/app/core/widgets/SettingsSectionWidget.dart';
-import 'package:linux_game_tweaks/app/core/widgets/YaruDropdownButtonWidget.dart';
-import 'package:linux_game_tweaks/app/core/widgets/YaruSwitchRowWidget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/section_description_widget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/settings_page_widget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/settings_section_widget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/yaru_dropdown_button_widget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/yaru_switch_row_widget.dart';
 import 'package:linux_game_tweaks/app/data/store/mango_hud_store.dart';
 import 'package:linux_game_tweaks/app/providers.dart';
 import 'package:linux_game_tweaks/app/public/mango_hud/performance/performance_mango_hud_controller.dart';

@@ -365,12 +365,6 @@
       ]
     },
     {
-      "name": "Affinity Publisher",
-      "regex": [
-        "affinity-publisher.*.exe"
-      ]
-    },
-    {
       "name": "Cinema 4D",
       "regex": [
         "cinema4d.*.exe"
@@ -630,7 +624,8 @@
     {
       "name": "Notepad++",
       "regex": [
-        "npp.*.(exe|msi)"
+        "npp.*.(exe|msi)",
+        "notepad.*.(exe|msi)"
       ],
       "flatpak": [
         {
@@ -917,17 +912,6 @@
       ]
     },
     {
-      "regex": [
-        ".*\\b(avast|avg|avira|kaspersky|mcaffe|malwarebytes|norton|sophos).*.(exe|msi)"
-      ]
-    },
-    {
-      "regex": [
-        ".*flash.*player.*.exe",
-        "flash-player.*"
-      ]
-    },
-    {
       "name": "RetroArch",
       "regex": [
         "retroarch-.*.-setup.exe"
@@ -1192,6 +1176,12 @@
       "regex": [
         "libreoffice.*.msi",
         "libreoffice.*"
+      ],
+      "flatpak": [
+        {
+          "remote": "flathub",
+          "id": "org.libreoffice.LibreOffice"
+        }
       ]
     },
     {

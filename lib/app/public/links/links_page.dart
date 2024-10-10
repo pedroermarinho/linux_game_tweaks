@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:linux_game_tweaks/app/core/utils/open_link.dart';
+import 'package:linux_game_tweaks/app/core/widgets/flatpak_button_widget.dart';
 import 'package:linux_game_tweaks/app/data/models/links/links_model.dart';
 import 'package:linux_game_tweaks/app/data/services/links_service.dart';
 import 'package:linux_game_tweaks/app/providers.dart';
 import 'package:yaru/icons.dart';
 import 'package:yaru/widgets.dart';
-
 
 class LinksPage extends StatefulWidget {
   const LinksPage({super.key});
@@ -50,32 +50,39 @@ class _LinksPageState extends State<LinksPage> {
             ),
             children: links
                 .map(
-                  (link) => Tooltip(
-                    message: link.description.ptBR,
-                    child: YaruBanner.tile(
-                      title: Text(link.name),
-                      subtitle:  Text(link.author),
-                      onTap: () => openLink(link.url),
-                      icon: SizedBox(
-                        width: 70,
-                        height: 70,
-                        child: link.urlImage != null
-                            ? Image.network(
-                          link.urlImage!,
-                          errorBuilder: (context, error, stackTrace) {
-                            return Icon(
+                  (link) => YaruBanner.tile(
+                    title: Text(link.name, overflow: TextOverflow.ellipsis, maxLines: 1),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(link.author, style: const TextStyle(fontSize: 10)),
+                        Text(link.description.ptBR, overflow: TextOverflow.ellipsis, maxLines: 1),
+                        if (link.flatpak != null) ...[
+                          SizedBox(height: 5),
+                          FlatpakButtonWidget(flatpak: link.flatpak!),
+                        ],
+                      ],
+                    ),
+                    onTap: () => openLink(link.url),
+                    icon: SizedBox(
+                      width: 70,
+                      height: 70,
+                      child: link.urlImage != null
+                          ? Image.network(
+                              link.urlImage!,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Icon(
+                                  YaruIcons.games,
+                                  size: 70,
+                                );
+                              },
+                            )
+                          : Icon(
                               YaruIcons.games,
                               size: 70,
-                            );
-                          },
-                        )
-                            : Icon(
-                          YaruIcons.games,
-                          size: 70,
-                        ),
-                      ),
+                            ),
                     ),
-                  )
+                  ),
                 )
                 .toList(),
           );

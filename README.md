@@ -141,7 +141,9 @@ Licenciado sob a MIT License.
 ## Créditos
 
 [Ubuntu Flutter Settings](https://github.com/ubuntu-flutter-community/settings)
+
 [Flutter Distributor](https://distributor.leanflutter.dev/)
+
 [zorin-exec-guard-app-db](https://github.com/ZorinOS/zorin-exec-guard-app-db)
 
 ---

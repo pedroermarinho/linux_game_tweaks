@@ -10,38 +10,12 @@ _$AppstreamModelImpl _$$AppstreamModelImplFromJson(Map<String, dynamic> json) =>
     _$AppstreamModelImpl(
       type: json['type'] as String,
       description: json['description'] as String,
-      screenshots: (json['screenshots'] as List<dynamic>)
-          .map((e) => ScreenshotModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      releases: (json['releases'] as List<dynamic>)
-          .map((e) => ReleaseModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      contentRating: ContentRatingModel.fromJson(
-          json['contentRating'] as Map<String, dynamic>),
-      urls: UrlsModel.fromJson(json['urls'] as Map<String, dynamic>),
       icon: json['icon'] as String,
-      icons: (json['icons'] as List<dynamic>)
-          .map((e) => IconModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      metadata:
-          MetadataModel.fromJson(json['metadata'] as Map<String, dynamic>),
-      developers: (json['developers'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
       id: json['id'] as String,
       name: json['name'] as String,
       summary: json['summary'] as String,
-      projectLicense: json['projectLicense'] as String,
-      developerName: json['developerName'] as String,
-      launchable:
-          LaunchableModel.fromJson(json['launchable'] as Map<String, dynamic>),
-      categories: (json['categories'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      provides:
-          (json['provides'] as List<dynamic>).map((e) => e as String).toList(),
-      bundle: BundleModel.fromJson(json['bundle'] as Map<String, dynamic>),
-      isFreeLicense: json['isFreeLicense'] as bool,
+      developerName: json['developer_name'] as String,
+      isFreeLicense: json['is_free_license'] as bool,
     );
 
 Map<String, dynamic> _$$AppstreamModelImplToJson(
@@ -49,24 +23,12 @@ Map<String, dynamic> _$$AppstreamModelImplToJson(
     <String, dynamic>{
       'type': instance.type,
       'description': instance.description,
-      'screenshots': instance.screenshots,
-      'releases': instance.releases,
-      'contentRating': instance.contentRating,
-      'urls': instance.urls,
       'icon': instance.icon,
-      'icons': instance.icons,
-      'metadata': instance.metadata,
-      'developers': instance.developers,
       'id': instance.id,
       'name': instance.name,
       'summary': instance.summary,
-      'projectLicense': instance.projectLicense,
-      'developerName': instance.developerName,
-      'launchable': instance.launchable,
-      'categories': instance.categories,
-      'provides': instance.provides,
-      'bundle': instance.bundle,
-      'isFreeLicense': instance.isFreeLicense,
+      'developer_name': instance.developerName,
+      'is_free_license': instance.isFreeLicense,
     };
 
 _$ScreenshotModelImpl _$$ScreenshotModelImplFromJson(
