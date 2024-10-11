@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Linux Game Tweaks
+Comment=Ferramenta para ajustes de jogos no Linux.
+Keywords=game; tweaks; linux;
+Exec=linux-game-tweaks %U
+Terminal=false
+Categories=Game;
+mimetype="application/x-ms-dos-executable;application/x-msi;application/x-ms-shortcut"
