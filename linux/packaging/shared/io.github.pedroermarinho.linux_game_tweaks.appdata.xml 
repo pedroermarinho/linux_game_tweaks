@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.pedroermarinho.linux_game_tweaks</id>
+
+  <name>Linux Game Tweaks</name>
+  <summary>linux_game_tweaks é um aplicativo voltado para oferecer ajustes e facilitar o gerenciamento de jogos no Linux.</summary>
+
+   <metadata_license>MIT</metadata_license>
+   <project_license>MIT</project_license>
+
+    <description>
+        <p>
+          linux_game_tweaks é um aplicativo voltado para oferecer ajustes e facilitar o gerenciamento de jogos no Linux. Ele serve como uma central de controle para jogos, permitindo configurar, monitorar e integrar várias ferramentas e sistemas utilizados no ambiente Linux para jogos.
+        </p>
+      </description>
+
+
+
+  <developer id="io.github.pedroermarinho">
+   <name>Pedro Marinho</name>
+  </developer>
+
+   <url type="bugtracker">https://github.com/pedroermarinho/linux_game_tweaks/issues</url>
+  <url type="homepage">https://pedroermarinho.github.io/linux_game_tweaks</url>
+  <url type="vcs-browser">https://github.com/pedroermarinho/linux_game_tweaks</url>
+  <update_contact>pedroermarinho@gmail.com</update_contact>
+
+  <launchable type="desktop-id">io.github.pedroermarinho.linux_game_tweaks.desktop</launchable>
+
+   <screenshots>
+       <screenshot type="default">
+         <image>https://raw.githubusercontent.com/pedroermarinho/linux_game_tweaks/refs/heads/main/docs/imgs/screenshot_1.png</image>
+       </screenshot>
+       <screenshot>
+         <image>https://raw.githubusercontent.com/pedroermarinho/linux_game_tweaks/refs/heads/main/docs/imgs/screenshot_2.png</image>
+       </screenshot>
+       <screenshot>
+         <image>https://raw.githubusercontent.com/pedroermarinho/linux_game_tweaks/refs/heads/main/docs/imgs/screenshot_3.png</image>
+       </screenshot>
+     </screenshots>
+
+</component>

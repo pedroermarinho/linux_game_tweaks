@@ -1,0 +1,56 @@
+id: io.github.pedroermarinho.linux_game_tweaks
+
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+command: linux_game_tweaks
+
+
+finish-args:
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --share=ipc
+  - --device=dri
+  - --talk-name=org.freedesktop.Flatpak
+  - --filesystem=home
+  - --share=network
+  - --filesystem=~/.var/app/com.heroicgameslauncher.hgl/config/heroic
+  - --filesystem=~/.var/app/com.usebottles.bottles/data/bottles
+  - --filesystem=~/.var/app/com.valvesoftware.Steam/data/Steam
+  - --filesystem=~/.var/app/net.lutris.Lutris/data/lutris
+  - --filesystem=~/.local/share/Steam
+  - --filesystem=~/.steam
+  - --filesystem=~/.var/app/com.valvesoftware.Steam/data/Steam
+  - --filesystem=~/.config/MangoHud
+  - --filesystem=~/.config/linux_game_tweaks
+  - --filesystem=xdg-desktop
+  - --filesystem=xdg-documents
+  - --filesystem=xdg-pictures
+  - --filesystem=xdg-music
+  - --filesystem=xdg-videos
+  - --filesystem=xdg-download
+    
+# build flutter app
+modules:
+    - name: linux_game_tweaks
+      buildsystem: simple
+      build-commands:
+        - mkdir -p /app/linux_game_tweaks
+        - cp -r ./* /app/linux_game_tweaks/
+        - chmod +x /app/linux_game_tweaks/linux_game_tweaks
+        - mkdir -p /app/bin
+        - ln -s /app/linux_game_tweaks/linux_game_tweaks /app/bin/linux_game_tweaks
+        - install -Dm644 git_repo/linux/packaging/flatpak/io.github.pedroermarinho.linux_game_tweaks.xml /app/share/appdata/io.github.pedroermarinho.linux_game_tweaks.xml
+#        - install -Dm644 git_repo/linux/packaging/flatpak/512x512.png /app/share/icons/hicolor/512x512/apps/io.github.pedroermarinho.linux_game_tweaks.png
+#        - install -Dm644 git_repo/linux/packaging/flatpak/io.github.pedroermarinho.linux_game_tweaks.desktop /app/share/applications/io.github.pedroermarinho.linux_game_tweaks.desktop
+
+
+      sources:
+        - type: archive
+#          dest: linux_game_tweaks_archive
+          url: https://github.com/pedroermarinho/linux_game_tweaks/releases/download/1.0.0%2B1/linux_game_tweaks-1.0.0+1-linux.zip
+          sha256: 56e886b825029e69c21d71b7c589f252b7c1a0074e4fd5b66ebf410ddd5b8a0b
+        - type: git
+          dest: git_repo
+          url: https://github.com/pedroermarinho/linux_game_tweaks.git
+          branch: main

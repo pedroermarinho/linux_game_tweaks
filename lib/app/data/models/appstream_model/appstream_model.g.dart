@@ -11,6 +11,8 @@ _$AppstreamModelImpl _$$AppstreamModelImplFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
       description: json['description'] as String,
       icon: json['icon'] as String,
+      metadata:
+          MetadataModel.fromJson(json['metadata'] as Map<String, dynamic>),
       id: json['id'] as String,
       name: json['name'] as String,
       summary: json['summary'] as String,
@@ -24,6 +26,7 @@ Map<String, dynamic> _$$AppstreamModelImplToJson(
       'type': instance.type,
       'description': instance.description,
       'icon': instance.icon,
+      'metadata': instance.metadata,
       'id': instance.id,
       'name': instance.name,
       'summary': instance.summary,
@@ -119,12 +122,35 @@ Map<String, dynamic> _$$IconModelImplToJson(_$IconModelImpl instance) =>
 
 _$MetadataModelImpl _$$MetadataModelImplFromJson(Map<String, dynamic> json) =>
     _$MetadataModelImpl(
-      flathubBuildBuildLogUrl: json['flathubBuildBuildLogUrl'] as String,
+      flathubBuildBuildLogUrl: json['flathub::build::build_log_url'] as String,
+      flathubVerificationVerified:
+          json['flathub::verification::verified'] as String?,
+      flathubVerificationTimestamp:
+          json['flathub::verification::timestamp'] as String?,
+      flathubVerificationMethod:
+          json['flathub::verification::method'] as String?,
+      flathubVerificationLoginName:
+          json['flathub::verification::login_name'] as String?,
+      flathubVerificationLoginProvider:
+          json['flathub::verification::login_provider'] as String?,
+      flathubVerificationLoginIsOrganization:
+          json['flathub::verification::login_is_organization'] as String?,
+      xFlatpakTags: json['X-Flatpak-Tags'] as String?,
     );
 
 Map<String, dynamic> _$$MetadataModelImplToJson(_$MetadataModelImpl instance) =>
     <String, dynamic>{
-      'flathubBuildBuildLogUrl': instance.flathubBuildBuildLogUrl,
+      'flathub::build::build_log_url': instance.flathubBuildBuildLogUrl,
+      'flathub::verification::verified': instance.flathubVerificationVerified,
+      'flathub::verification::timestamp': instance.flathubVerificationTimestamp,
+      'flathub::verification::method': instance.flathubVerificationMethod,
+      'flathub::verification::login_name':
+          instance.flathubVerificationLoginName,
+      'flathub::verification::login_provider':
+          instance.flathubVerificationLoginProvider,
+      'flathub::verification::login_is_organization':
+          instance.flathubVerificationLoginIsOrganization,
+      'X-Flatpak-Tags': instance.xFlatpakTags,
     };
 
 _$LaunchableModelImpl _$$LaunchableModelImplFromJson(

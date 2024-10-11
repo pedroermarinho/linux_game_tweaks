@@ -16,7 +16,7 @@ class AppstreamModel with _$AppstreamModel {
     // required UrlsModel urls,
     required String icon,
     // required List<IconModel> icons,
-    // required MetadataModel metadata,
+    required MetadataModel metadata,
     // required List<String> developers,
     required String id,
     required String name,
@@ -110,11 +110,18 @@ class IconModel with _$IconModel {
 
 @freezed
 class MetadataModel with _$MetadataModel {
-  const MetadataModel._();
-
   factory MetadataModel({
-    required String flathubBuildBuildLogUrl,
+    @JsonKey(name: "flathub::build::build_log_url") required String flathubBuildBuildLogUrl,
+    @JsonKey(name: "flathub::verification::verified") String? flathubVerificationVerified,
+    @JsonKey(name: "flathub::verification::timestamp") String? flathubVerificationTimestamp,
+    @JsonKey(name: "flathub::verification::method") String? flathubVerificationMethod,
+    @JsonKey(name: "flathub::verification::login_name") String? flathubVerificationLoginName,
+    @JsonKey(name: "flathub::verification::login_provider") String? flathubVerificationLoginProvider,
+    @JsonKey(name: "flathub::verification::login_is_organization") String? flathubVerificationLoginIsOrganization,
+    @JsonKey(name: "X-Flatpak-Tags") String? xFlatpakTags,
   }) = _MetadataModel;
+
+  const MetadataModel._();
 
   factory MetadataModel.fromJson(Map<String, dynamic> json) => _$MetadataModelFromJson(json);
 }

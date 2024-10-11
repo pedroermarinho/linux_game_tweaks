@@ -172,3 +172,31 @@ builds
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all
 
 dist/
+# Created by https://www.toptal.com/developers/gitignore/api/flatpak
+# Edit at https://www.toptal.com/developers/gitignore?templates=flatpak
+
+### Flatpak ###
+.flatpak-builder
+build
+build-dir
+repo
+
+# End of https://www.toptal.com/developers/gitignore/api/flatpak
+
+
+# Diretório de build do Flatpak
+builddir/
+
+# Cache do Flatpak Builder
+.flatpak-builder/
+
+# Repositório temporário do Flatpak Builder
+repo/
+
+*.log
+
+*.tmp
+*.swp
+.DS_Store
+
+*~

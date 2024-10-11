@@ -1,9 +1,14 @@
 display_name: Linux Game Tweaks
+package_name: linux_game_tweaks
 
+maintainer:
+  name: Pedro Marinho
+  email: pedroermarinho@gmail.com
+
+priority: optional
+section: x11
+essential: false
 icon: assets/512x512.png
-
-generic_name: Ferramenta para ajustes de jogos no Linux.
-
 metainfo: io.github.pedroermarinho.linux_game_tweaks
 
 supported_mime_type:
@@ -23,5 +28,3 @@ categories:
   - Settings
 
 startup_notify: true
-
-include: []

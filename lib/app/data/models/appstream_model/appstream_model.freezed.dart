@@ -28,8 +28,8 @@ mixin _$AppstreamModel {
 // required UrlsModel urls,
   String get icon =>
       throw _privateConstructorUsedError; // required List<IconModel> icons,
-// required MetadataModel metadata,
-// required List<String> developers,
+  MetadataModel get metadata =>
+      throw _privateConstructorUsedError; // required List<String> developers,
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get summary =>
@@ -63,11 +63,14 @@ abstract class $AppstreamModelCopyWith<$Res> {
       {String type,
       String description,
       String icon,
+      MetadataModel metadata,
       String id,
       String name,
       String summary,
       @JsonKey(name: "developer_name") String developerName,
       @JsonKey(name: "is_free_license") bool isFreeLicense});
+
+  $MetadataModelCopyWith<$Res> get metadata;
 }
 
 /// @nodoc
@@ -88,6 +91,7 @@ class _$AppstreamModelCopyWithImpl<$Res, $Val extends AppstreamModel>
     Object? type = null,
     Object? description = null,
     Object? icon = null,
+    Object? metadata = null,
     Object? id = null,
     Object? name = null,
     Object? summary = null,
@@ -107,6 +111,10 @@ class _$AppstreamModelCopyWithImpl<$Res, $Val extends AppstreamModel>
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as String,
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as MetadataModel,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -129,6 +137,16 @@ class _$AppstreamModelCopyWithImpl<$Res, $Val extends AppstreamModel>
               as bool,
     ) as $Val);
   }
+
+  /// Create a copy of AppstreamModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MetadataModelCopyWith<$Res> get metadata {
+    return $MetadataModelCopyWith<$Res>(_value.metadata, (value) {
+      return _then(_value.copyWith(metadata: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -143,11 +161,15 @@ abstract class _$$AppstreamModelImplCopyWith<$Res>
       {String type,
       String description,
       String icon,
+      MetadataModel metadata,
       String id,
       String name,
       String summary,
       @JsonKey(name: "developer_name") String developerName,
       @JsonKey(name: "is_free_license") bool isFreeLicense});
+
+  @override
+  $MetadataModelCopyWith<$Res> get metadata;
 }
 
 /// @nodoc
@@ -166,6 +188,7 @@ class __$$AppstreamModelImplCopyWithImpl<$Res>
     Object? type = null,
     Object? description = null,
     Object? icon = null,
+    Object? metadata = null,
     Object? id = null,
     Object? name = null,
     Object? summary = null,
@@ -185,6 +208,10 @@ class __$$AppstreamModelImplCopyWithImpl<$Res>
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as String,
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as MetadataModel,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -216,6 +243,7 @@ class _$AppstreamModelImpl extends _AppstreamModel {
       {required this.type,
       required this.description,
       required this.icon,
+      required this.metadata,
       required this.id,
       required this.name,
       required this.summary,
@@ -237,7 +265,8 @@ class _$AppstreamModelImpl extends _AppstreamModel {
   @override
   final String icon;
 // required List<IconModel> icons,
-// required MetadataModel metadata,
+  @override
+  final MetadataModel metadata;
 // required List<String> developers,
   @override
   final String id;
@@ -259,7 +288,7 @@ class _$AppstreamModelImpl extends _AppstreamModel {
 
   @override
   String toString() {
-    return 'AppstreamModel(type: $type, description: $description, icon: $icon, id: $id, name: $name, summary: $summary, developerName: $developerName, isFreeLicense: $isFreeLicense)';
+    return 'AppstreamModel(type: $type, description: $description, icon: $icon, metadata: $metadata, id: $id, name: $name, summary: $summary, developerName: $developerName, isFreeLicense: $isFreeLicense)';
   }
 
   @override
@@ -271,6 +300,8 @@ class _$AppstreamModelImpl extends _AppstreamModel {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.icon, icon) || other.icon == icon) &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.summary, summary) || other.summary == summary) &&
@@ -282,8 +313,8 @@ class _$AppstreamModelImpl extends _AppstreamModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, type, description, icon, id,
-      name, summary, developerName, isFreeLicense);
+  int get hashCode => Object.hash(runtimeType, type, description, icon,
+      metadata, id, name, summary, developerName, isFreeLicense);
 
   /// Create a copy of AppstreamModel
   /// with the given fields replaced by the non-null parameter values.
@@ -307,6 +338,7 @@ abstract class _AppstreamModel extends AppstreamModel {
       {required final String type,
       required final String description,
       required final String icon,
+      required final MetadataModel metadata,
       required final String id,
       required final String name,
       required final String summary,
@@ -327,8 +359,8 @@ abstract class _AppstreamModel extends AppstreamModel {
 // required UrlsModel urls,
   @override
   String get icon; // required List<IconModel> icons,
-// required MetadataModel metadata,
-// required List<String> developers,
+  @override
+  MetadataModel get metadata; // required List<String> developers,
   @override
   String get id;
   @override
@@ -1444,7 +1476,26 @@ MetadataModel _$MetadataModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MetadataModel {
+  @JsonKey(name: "flathub::build::build_log_url")
   String get flathubBuildBuildLogUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: "flathub::verification::verified")
+  String? get flathubVerificationVerified => throw _privateConstructorUsedError;
+  @JsonKey(name: "flathub::verification::timestamp")
+  String? get flathubVerificationTimestamp =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: "flathub::verification::method")
+  String? get flathubVerificationMethod => throw _privateConstructorUsedError;
+  @JsonKey(name: "flathub::verification::login_name")
+  String? get flathubVerificationLoginName =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: "flathub::verification::login_provider")
+  String? get flathubVerificationLoginProvider =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: "flathub::verification::login_is_organization")
+  String? get flathubVerificationLoginIsOrganization =>
+      throw _privateConstructorUsedError;
+  @JsonKey(name: "X-Flatpak-Tags")
+  String? get xFlatpakTags => throw _privateConstructorUsedError;
 
   /// Serializes this MetadataModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1462,7 +1513,22 @@ abstract class $MetadataModelCopyWith<$Res> {
           MetadataModel value, $Res Function(MetadataModel) then) =
       _$MetadataModelCopyWithImpl<$Res, MetadataModel>;
   @useResult
-  $Res call({String flathubBuildBuildLogUrl});
+  $Res call(
+      {@JsonKey(name: "flathub::build::build_log_url")
+      String flathubBuildBuildLogUrl,
+      @JsonKey(name: "flathub::verification::verified")
+      String? flathubVerificationVerified,
+      @JsonKey(name: "flathub::verification::timestamp")
+      String? flathubVerificationTimestamp,
+      @JsonKey(name: "flathub::verification::method")
+      String? flathubVerificationMethod,
+      @JsonKey(name: "flathub::verification::login_name")
+      String? flathubVerificationLoginName,
+      @JsonKey(name: "flathub::verification::login_provider")
+      String? flathubVerificationLoginProvider,
+      @JsonKey(name: "flathub::verification::login_is_organization")
+      String? flathubVerificationLoginIsOrganization,
+      @JsonKey(name: "X-Flatpak-Tags") String? xFlatpakTags});
 }
 
 /// @nodoc
@@ -1481,12 +1547,49 @@ class _$MetadataModelCopyWithImpl<$Res, $Val extends MetadataModel>
   @override
   $Res call({
     Object? flathubBuildBuildLogUrl = null,
+    Object? flathubVerificationVerified = freezed,
+    Object? flathubVerificationTimestamp = freezed,
+    Object? flathubVerificationMethod = freezed,
+    Object? flathubVerificationLoginName = freezed,
+    Object? flathubVerificationLoginProvider = freezed,
+    Object? flathubVerificationLoginIsOrganization = freezed,
+    Object? xFlatpakTags = freezed,
   }) {
     return _then(_value.copyWith(
       flathubBuildBuildLogUrl: null == flathubBuildBuildLogUrl
           ? _value.flathubBuildBuildLogUrl
           : flathubBuildBuildLogUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      flathubVerificationVerified: freezed == flathubVerificationVerified
+          ? _value.flathubVerificationVerified
+          : flathubVerificationVerified // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flathubVerificationTimestamp: freezed == flathubVerificationTimestamp
+          ? _value.flathubVerificationTimestamp
+          : flathubVerificationTimestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flathubVerificationMethod: freezed == flathubVerificationMethod
+          ? _value.flathubVerificationMethod
+          : flathubVerificationMethod // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flathubVerificationLoginName: freezed == flathubVerificationLoginName
+          ? _value.flathubVerificationLoginName
+          : flathubVerificationLoginName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flathubVerificationLoginProvider: freezed ==
+              flathubVerificationLoginProvider
+          ? _value.flathubVerificationLoginProvider
+          : flathubVerificationLoginProvider // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flathubVerificationLoginIsOrganization: freezed ==
+              flathubVerificationLoginIsOrganization
+          ? _value.flathubVerificationLoginIsOrganization
+          : flathubVerificationLoginIsOrganization // ignore: cast_nullable_to_non_nullable
+              as String?,
+      xFlatpakTags: freezed == xFlatpakTags
+          ? _value.xFlatpakTags
+          : xFlatpakTags // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -1499,7 +1602,22 @@ abstract class _$$MetadataModelImplCopyWith<$Res>
       __$$MetadataModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String flathubBuildBuildLogUrl});
+  $Res call(
+      {@JsonKey(name: "flathub::build::build_log_url")
+      String flathubBuildBuildLogUrl,
+      @JsonKey(name: "flathub::verification::verified")
+      String? flathubVerificationVerified,
+      @JsonKey(name: "flathub::verification::timestamp")
+      String? flathubVerificationTimestamp,
+      @JsonKey(name: "flathub::verification::method")
+      String? flathubVerificationMethod,
+      @JsonKey(name: "flathub::verification::login_name")
+      String? flathubVerificationLoginName,
+      @JsonKey(name: "flathub::verification::login_provider")
+      String? flathubVerificationLoginProvider,
+      @JsonKey(name: "flathub::verification::login_is_organization")
+      String? flathubVerificationLoginIsOrganization,
+      @JsonKey(name: "X-Flatpak-Tags") String? xFlatpakTags});
 }
 
 /// @nodoc
@@ -1516,12 +1634,49 @@ class __$$MetadataModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? flathubBuildBuildLogUrl = null,
+    Object? flathubVerificationVerified = freezed,
+    Object? flathubVerificationTimestamp = freezed,
+    Object? flathubVerificationMethod = freezed,
+    Object? flathubVerificationLoginName = freezed,
+    Object? flathubVerificationLoginProvider = freezed,
+    Object? flathubVerificationLoginIsOrganization = freezed,
+    Object? xFlatpakTags = freezed,
   }) {
     return _then(_$MetadataModelImpl(
       flathubBuildBuildLogUrl: null == flathubBuildBuildLogUrl
           ? _value.flathubBuildBuildLogUrl
           : flathubBuildBuildLogUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      flathubVerificationVerified: freezed == flathubVerificationVerified
+          ? _value.flathubVerificationVerified
+          : flathubVerificationVerified // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flathubVerificationTimestamp: freezed == flathubVerificationTimestamp
+          ? _value.flathubVerificationTimestamp
+          : flathubVerificationTimestamp // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flathubVerificationMethod: freezed == flathubVerificationMethod
+          ? _value.flathubVerificationMethod
+          : flathubVerificationMethod // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flathubVerificationLoginName: freezed == flathubVerificationLoginName
+          ? _value.flathubVerificationLoginName
+          : flathubVerificationLoginName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flathubVerificationLoginProvider: freezed ==
+              flathubVerificationLoginProvider
+          ? _value.flathubVerificationLoginProvider
+          : flathubVerificationLoginProvider // ignore: cast_nullable_to_non_nullable
+              as String?,
+      flathubVerificationLoginIsOrganization: freezed ==
+              flathubVerificationLoginIsOrganization
+          ? _value.flathubVerificationLoginIsOrganization
+          : flathubVerificationLoginIsOrganization // ignore: cast_nullable_to_non_nullable
+              as String?,
+      xFlatpakTags: freezed == xFlatpakTags
+          ? _value.xFlatpakTags
+          : xFlatpakTags // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1529,17 +1684,55 @@ class __$$MetadataModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$MetadataModelImpl extends _MetadataModel {
-  _$MetadataModelImpl({required this.flathubBuildBuildLogUrl}) : super._();
+  _$MetadataModelImpl(
+      {@JsonKey(name: "flathub::build::build_log_url")
+      required this.flathubBuildBuildLogUrl,
+      @JsonKey(name: "flathub::verification::verified")
+      this.flathubVerificationVerified,
+      @JsonKey(name: "flathub::verification::timestamp")
+      this.flathubVerificationTimestamp,
+      @JsonKey(name: "flathub::verification::method")
+      this.flathubVerificationMethod,
+      @JsonKey(name: "flathub::verification::login_name")
+      this.flathubVerificationLoginName,
+      @JsonKey(name: "flathub::verification::login_provider")
+      this.flathubVerificationLoginProvider,
+      @JsonKey(name: "flathub::verification::login_is_organization")
+      this.flathubVerificationLoginIsOrganization,
+      @JsonKey(name: "X-Flatpak-Tags") this.xFlatpakTags})
+      : super._();
 
   factory _$MetadataModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$MetadataModelImplFromJson(json);
 
   @override
+  @JsonKey(name: "flathub::build::build_log_url")
   final String flathubBuildBuildLogUrl;
+  @override
+  @JsonKey(name: "flathub::verification::verified")
+  final String? flathubVerificationVerified;
+  @override
+  @JsonKey(name: "flathub::verification::timestamp")
+  final String? flathubVerificationTimestamp;
+  @override
+  @JsonKey(name: "flathub::verification::method")
+  final String? flathubVerificationMethod;
+  @override
+  @JsonKey(name: "flathub::verification::login_name")
+  final String? flathubVerificationLoginName;
+  @override
+  @JsonKey(name: "flathub::verification::login_provider")
+  final String? flathubVerificationLoginProvider;
+  @override
+  @JsonKey(name: "flathub::verification::login_is_organization")
+  final String? flathubVerificationLoginIsOrganization;
+  @override
+  @JsonKey(name: "X-Flatpak-Tags")
+  final String? xFlatpakTags;
 
   @override
   String toString() {
-    return 'MetadataModel(flathubBuildBuildLogUrl: $flathubBuildBuildLogUrl)';
+    return 'MetadataModel(flathubBuildBuildLogUrl: $flathubBuildBuildLogUrl, flathubVerificationVerified: $flathubVerificationVerified, flathubVerificationTimestamp: $flathubVerificationTimestamp, flathubVerificationMethod: $flathubVerificationMethod, flathubVerificationLoginName: $flathubVerificationLoginName, flathubVerificationLoginProvider: $flathubVerificationLoginProvider, flathubVerificationLoginIsOrganization: $flathubVerificationLoginIsOrganization, xFlatpakTags: $xFlatpakTags)';
   }
 
   @override
@@ -1549,12 +1742,43 @@ class _$MetadataModelImpl extends _MetadataModel {
             other is _$MetadataModelImpl &&
             (identical(
                     other.flathubBuildBuildLogUrl, flathubBuildBuildLogUrl) ||
-                other.flathubBuildBuildLogUrl == flathubBuildBuildLogUrl));
+                other.flathubBuildBuildLogUrl == flathubBuildBuildLogUrl) &&
+            (identical(other.flathubVerificationVerified, flathubVerificationVerified) ||
+                other.flathubVerificationVerified ==
+                    flathubVerificationVerified) &&
+            (identical(other.flathubVerificationTimestamp, flathubVerificationTimestamp) ||
+                other.flathubVerificationTimestamp ==
+                    flathubVerificationTimestamp) &&
+            (identical(other.flathubVerificationMethod, flathubVerificationMethod) ||
+                other.flathubVerificationMethod == flathubVerificationMethod) &&
+            (identical(other.flathubVerificationLoginName,
+                    flathubVerificationLoginName) ||
+                other.flathubVerificationLoginName ==
+                    flathubVerificationLoginName) &&
+            (identical(other.flathubVerificationLoginProvider,
+                    flathubVerificationLoginProvider) ||
+                other.flathubVerificationLoginProvider ==
+                    flathubVerificationLoginProvider) &&
+            (identical(other.flathubVerificationLoginIsOrganization,
+                    flathubVerificationLoginIsOrganization) ||
+                other.flathubVerificationLoginIsOrganization ==
+                    flathubVerificationLoginIsOrganization) &&
+            (identical(other.xFlatpakTags, xFlatpakTags) ||
+                other.xFlatpakTags == xFlatpakTags));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, flathubBuildBuildLogUrl);
+  int get hashCode => Object.hash(
+      runtimeType,
+      flathubBuildBuildLogUrl,
+      flathubVerificationVerified,
+      flathubVerificationTimestamp,
+      flathubVerificationMethod,
+      flathubVerificationLoginName,
+      flathubVerificationLoginProvider,
+      flathubVerificationLoginIsOrganization,
+      xFlatpakTags);
 
   /// Create a copy of MetadataModel
   /// with the given fields replaced by the non-null parameter values.
@@ -1573,7 +1797,22 @@ class _$MetadataModelImpl extends _MetadataModel {
 }
 
 abstract class _MetadataModel extends MetadataModel {
-  factory _MetadataModel({required final String flathubBuildBuildLogUrl}) =
+  factory _MetadataModel(
+          {@JsonKey(name: "flathub::build::build_log_url")
+          required final String flathubBuildBuildLogUrl,
+          @JsonKey(name: "flathub::verification::verified")
+          final String? flathubVerificationVerified,
+          @JsonKey(name: "flathub::verification::timestamp")
+          final String? flathubVerificationTimestamp,
+          @JsonKey(name: "flathub::verification::method")
+          final String? flathubVerificationMethod,
+          @JsonKey(name: "flathub::verification::login_name")
+          final String? flathubVerificationLoginName,
+          @JsonKey(name: "flathub::verification::login_provider")
+          final String? flathubVerificationLoginProvider,
+          @JsonKey(name: "flathub::verification::login_is_organization")
+          final String? flathubVerificationLoginIsOrganization,
+          @JsonKey(name: "X-Flatpak-Tags") final String? xFlatpakTags}) =
       _$MetadataModelImpl;
   _MetadataModel._() : super._();
 
@@ -1581,7 +1820,29 @@ abstract class _MetadataModel extends MetadataModel {
       _$MetadataModelImpl.fromJson;
 
   @override
+  @JsonKey(name: "flathub::build::build_log_url")
   String get flathubBuildBuildLogUrl;
+  @override
+  @JsonKey(name: "flathub::verification::verified")
+  String? get flathubVerificationVerified;
+  @override
+  @JsonKey(name: "flathub::verification::timestamp")
+  String? get flathubVerificationTimestamp;
+  @override
+  @JsonKey(name: "flathub::verification::method")
+  String? get flathubVerificationMethod;
+  @override
+  @JsonKey(name: "flathub::verification::login_name")
+  String? get flathubVerificationLoginName;
+  @override
+  @JsonKey(name: "flathub::verification::login_provider")
+  String? get flathubVerificationLoginProvider;
+  @override
+  @JsonKey(name: "flathub::verification::login_is_organization")
+  String? get flathubVerificationLoginIsOrganization;
+  @override
+  @JsonKey(name: "X-Flatpak-Tags")
+  String? get xFlatpakTags;
 
   /// Create a copy of MetadataModel
   /// with the given fields replaced by the non-null parameter values.
