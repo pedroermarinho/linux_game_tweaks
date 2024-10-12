@@ -1,10 +1,10 @@
 display_name: Linux Game Tweaks
 
-icon: assets/512x512.png
+icon: assets/linux_game_tweaks.png
 
 generic_name: Ferramenta para ajustes de jogos no Linux.
 
-metainfo: io.github.pedroermarinho.linux_game_tweaks
+metainfo: linux/packaging/flatpak/io.github.pedroermarinho.linux_game_tweaks.yml
 
 supported_mime_type:
   - application/x-ms-dos-executable
