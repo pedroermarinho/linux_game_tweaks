@@ -1,48 +1,49 @@
 import 'dart:io';
 
 import 'package:change_case/change_case.dart';
+import 'package:linux_game_tweaks/app/core/constants/dir_constants.dart';
+import 'package:linux_game_tweaks/app/core/utils/process_custom.dart';
 import 'package:linux_game_tweaks/app/data/models/mango_hud/mango_hud_model.dart';
 import 'package:path/path.dart';
-import 'package:xdg_directories/xdg_directories.dart';
 
 class MangoHudService {
   Future<String> getVersion() async {
-    final data = await Process.run('mangohud', ['--version']);
+    final data = await runCommand('mangohud', ['--version']);
     return data.stdout.toString();
   }
 
   Future<bool> checkInstallation() async {
-    final data = await Process.run('mangohud', ['--version']);
+    final data = await runCommand('mangohud', ['--version']);
     return data.exitCode == 0;
   }
 
   Future<void> runOpenGLTest() async {
-    await Process.run('mangohud', ['glxgears']);
+    await runCommand('mangohud', ['glxgears']);
   }
 
   Future<void> runVulkanTest() async {
-    await Process.run('mangohud', ['vkcube']);
+    await runCommand('mangohud', ['vkcube']);
   }
 
   Future<void> changeGlobal(bool value) async {
     final mangoHud = value ? '1' : '0';
     const environmentPath = '/etc/environment';
 
-    final isVariableExist = await Process.run('grep', [
+    final isVariableExist = await runCommand('grep', [
       '-q',
       "MANGOHUD=",
       environmentPath,
     ]);
 
     if (isVariableExist.exitCode == 0) {
-      await Process.run('pkexec', [
+      await runCommand('pkexec', [
         'sed',
         '-i',
         "s/^MANGOHUD=.*/MANGOHUD=$mangoHud/",
         environmentPath,
       ]);
     } else {
-      final process = await Process.start(
+      final process = await startCommand(
         'pkexec',
         ['tee', '-a', environmentPath],
       );
@@ -52,12 +53,12 @@ class MangoHudService {
   }
 
   Future<bool> checkGlobal() async {
-    final data = await Process.run('cat', ['/etc/environment']);
+    final data = await runCommand('cat', ['/etc/environment']);
     return data.stdout.toString().contains('MANGOHUD=1');
   }
 
   String getPathFileConfig() {
-    return join(configHome.path, 'MangoHud', 'MangoHud.conf');
+    return join(AppDirectories.xdgConfigDir, 'MangoHud', 'MangoHud.conf');
   }
 
   Future<MangoHudModel> getMangoHudConfig() async {

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:linux_game_tweaks/app/core/utils/process_custom.dart';
 import 'package:linux_game_tweaks/app/data/models/flatpak/flatpak_model.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
@@ -24,7 +25,7 @@ class FlatpakServiceImpl implements FlatpakService {
   /// Verifica se o comando Flatpak está disponível no sistema.
   Future<void> _checkFlatpakAvailability() async {
     try {
-      final result = await Process.run(_flatpakCommand, ['--version']);
+      final result = await runCommand(_flatpakCommand, ['--version']);
       if (result.exitCode != 0) {
         _logger.error('Flatpak is not installed or accessible. Exit code: ${result.exitCode}');
         throw Exception('Flatpak is not installed or accessible. Please install it.');
@@ -54,7 +55,7 @@ class FlatpakServiceImpl implements FlatpakService {
   @override
   Future<bool> isInstalled(FlatpakModel flatpak) async {
     _logger.info('Checking if flatpak ${flatpak.id} is installed');
-    final result = await Process.run(_flatpakCommand, ['list', '--app', '--columns=application']);
+    final result = await runCommand(_flatpakCommand, ['list', '--app', '--columns=application']);
 
     if (result.exitCode != 0) {
       _logAndThrowError('Error checking installed flatpaks', result.exitCode, result.stderr);
@@ -73,7 +74,7 @@ class FlatpakServiceImpl implements FlatpakService {
     required FlatpakModel flatpak,
   }) async* {
     _logger.info('$actionName flatpak ${flatpak.id}');
-    final process = await Process.start(_flatpakCommand, [command, ...args]);
+    final process = await startCommand(_flatpakCommand, [command, ...args]);
 
     // Captura saída de erro
     final errorOutput = process.stderr.transform(utf8.decoder).join();
@@ -120,7 +121,7 @@ class FlatpakServiceImpl implements FlatpakService {
     // open flatpak
     _logger.info('Opening flatpak ${flatpak.id}');
 
-    final process = await Process.run(_flatpakCommand, ['run', flatpak.id]);
+    final process = await runCommand(_flatpakCommand, ['run', flatpak.id]);
 
     if (process.exitCode != 0) {
       _logAndThrowError('Error opening flatpak', process.exitCode, process.stderr);

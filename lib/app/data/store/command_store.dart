@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:linux_game_tweaks/app/core/utils/process_custom.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 class CommandStore extends ChangeNotifier {
@@ -105,13 +106,13 @@ class CommandStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> runCommand() async {
+  Future<void> executeCommand() async {
     messageError = null;
     messageErrorDetails = null;
     notifyListeners();
     try {
       final process =
-          await Process.run(finalCommand.first, finalCommand.sublist(1));
+          await runCommand(finalCommand.first, finalCommand.sublist(1));
 
       if (process.exitCode != 0) {
         messageError = process.stderr.toString();

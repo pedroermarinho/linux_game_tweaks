@@ -122,7 +122,7 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
               YaruTile(
                 title: Text("Executar comando"),
                 trailing: YaruOptionButton(
-                  onPressed: store.runCommand,
+                  onPressed: store.executeCommand,
                   child: const Icon(YaruIcons.media_play),
                 ),
               ),

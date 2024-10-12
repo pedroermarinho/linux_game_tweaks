@@ -50,6 +50,7 @@ class _ApplicationsPageState extends State<ApplicationsPage> {
                   (app) => YaruBanner(
                     padding: const EdgeInsets.all(0),
                     elevation: 10,
+                    onTap: ()=> steamService.openGame(app),
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(

@@ -1,30 +1,36 @@
 import 'dart:io';
 
+import 'package:linux_game_tweaks/app/core/utils/process_custom.dart';
 import 'package:linux_game_tweaks/app/data/models/steam_app/steam_app_model.dart';
 import 'package:linux_game_tweaks/app/data/models/steam_app_manifest/steam_app_manifest_model.dart';
 import 'package:linux_game_tweaks/app/data/models/steam_library/steam_library_model.dart';
 import 'package:path/path.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
-class SteamService {
-   final log = Logger('SteamService');
+abstract class SteamService {
+  Future<List<SteamAppModel>> getSteamApps();
+
+  Future<ProcessResult> openGame(SteamAppModel app);
+}
+
+class SteamServiceImpl implements SteamService {
+  final log = Logger('SteamService');
 
   final List<String> commonSteamDirs = [
     join('.steam', 'steam'),
     join('.local', 'share', 'Steam'),
   ];
 
-   bool existSteamAppsDir(String path) {
+  bool existSteamAppsDir(String path) {
     var dir = Directory(path);
     if (!dir.existsSync()) {
       return false;
     }
-    var exists = dir.listSync().any(
-        (entry) => entry is Directory && basename(entry.path) == 'steamapps');
+    var exists = dir.listSync().any((entry) => entry is Directory && basename(entry.path) == 'steamapps');
     return exists;
   }
 
-   List<List<String>> findSteamInstallations() {
+  List<List<String>> findSteamInstallations() {
     var candidates = <String, String>{};
     var steamRoot = join(Directory.current.path, '.steam', 'root');
 
@@ -42,48 +48,39 @@ class SteamService {
     return candidates.entries.map((e) => [e.key, e.value]).toList();
   }
 
-   List<String>? findSteamPath() {
-    return findSteamInstallations().isNotEmpty
-        ? findSteamInstallations()[0]
-        : null;
+  List<String>? findSteamPath() {
+    return findSteamInstallations().isNotEmpty ? findSteamInstallations()[0] : null;
   }
 
-   String? findLibraryFoldersVDF() {
+  String? findLibraryFoldersVDF() {
     final steamPath = findSteamPath();
     if (steamPath == null) return null;
 
-    final libraryFoldersVDFPath =
-        join(steamPath[0], 'steamapps', 'libraryfolders.vdf');
-    return File(libraryFoldersVDFPath).existsSync()
-        ? libraryFoldersVDFPath
-        : null;
+    final libraryFoldersVDFPath = join(steamPath[0], 'steamapps', 'libraryfolders.vdf');
+    return File(libraryFoldersVDFPath).existsSync() ? libraryFoldersVDFPath : null;
   }
 
-   Future<SteamLibraryModel?> parseLibraryFoldersVDF(String path) async {
+  Future<SteamLibraryModel?> parseLibraryFoldersVDF(String path) async {
     try {
       final file = File(path);
-      return file.existsSync()
-          ? SteamLibraryModel.fromADF(await file.readAsString())
-          : null;
+      return file.existsSync() ? SteamLibraryModel.fromADF(await file.readAsString()) : null;
     } catch (e) {
       log.error('Erro ao ler libraryfolders.vdf: $e');
       return null;
     }
   }
 
-   Future<SteamAppManifestModel?> parseAppManifest(String path) async {
+  Future<SteamAppManifestModel?> parseAppManifest(String path) async {
     try {
       final file = File(path);
-      return file.existsSync()
-          ? SteamAppManifestModel.fromADF(await file.readAsString())
-          : null;
+      return file.existsSync() ? SteamAppManifestModel.fromADF(await file.readAsString()) : null;
     } catch (e) {
       log.error('Erro ao ler appmanifest: $e');
       return null;
     }
   }
 
-   Future<List<SteamAppManifestModel>> getAppsSteamLibrary() async {
+  Future<List<SteamAppManifestModel>> getAppsSteamLibrary() async {
     final List<SteamAppManifestModel> apps = [];
     final libraryFoldersVDFPath = findLibraryFoldersVDF();
 
@@ -100,15 +97,13 @@ class SteamService {
 
     for (var folder in libraryFolders.libraryfolders.values) {
       for (var app in folder.apps) {
-        final appManifestPath =
-            join(folder.path, 'steamapps', 'appmanifest_${app.appId}.acf');
+        final appManifestPath = join(folder.path, 'steamapps', 'appmanifest_${app.appId}.acf');
         if (File(appManifestPath).existsSync()) {
           final appManifest = await parseAppManifest(appManifestPath);
           if (appManifest != null) {
             apps.add(appManifest);
           } else {
-            log.warning(
-                'Manifesto de aplicativo não encontrado: $appManifestPath');
+            log.warning('Manifesto de aplicativo não encontrado: $appManifestPath');
           }
         }
       }
@@ -116,13 +111,12 @@ class SteamService {
     return apps;
   }
 
-   Future<List<SteamAppModel>> getSteamApps() async {
+  Future<List<SteamAppModel>> getSteamApps() async {
     final apps = await getAppsSteamLibrary();
     return Future.wait(apps.map(convertAppManifestToAppModel).toList());
   }
 
-   Future<SteamAppModel> convertAppManifestToAppModel(
-      SteamAppManifestModel appManifest) async {
+  Future<SteamAppModel> convertAppManifestToAppModel(SteamAppManifestModel appManifest) async {
     return SteamAppModel(
       appId: appManifest.appState.appid,
       name: appManifest.appState.name,
@@ -132,7 +126,7 @@ class SteamService {
     );
   }
 
-   Future<SteamAppImagesModel> getIconAppPath(String appId) {
+  Future<SteamAppImagesModel> getIconAppPath(String appId) {
     final steamPath = findSteamPath();
     final rootPath = join(steamPath![0], 'appcache', 'librarycache');
 
@@ -162,14 +156,18 @@ class SteamService {
     });
   }
 
-   String getSizeOnDisk(SteamAppManifestModel appManifest) {
+  String getSizeOnDisk(SteamAppManifestModel appManifest) {
     final size = int.parse(appManifest.appState.sizeOnDisk);
     return (size / (1024 * 1024 * 1024)).toStringAsFixed(2);
   }
 
-   Future<void> setup() async {
-    log.info('Configurando SteamService');
-    final apps = await getSteamApps();
-    log.info('Apps: ${apps.map((e) => e.toString()).join('\n')}');
+  @override
+  Future<ProcessResult> openGame(SteamAppModel app) {
+    log.info('Abrindo jogo ${app.name} - ${app.appId}');
+    final process = runCommand("steam", ["-silent", "-applaunch", app.appId]);
+    process.then((value) {
+      log.info('Jogo ${app.name} - ${app.appId} aberto - ${value.stderr}');
+    });
+    return process;
   }
 }

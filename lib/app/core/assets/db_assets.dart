@@ -1,4 +1,7 @@
+import 'package:linux_game_tweaks/app/core/constants/dir_constants.dart';
+import 'package:path/path.dart';
+
 class DBAssets {
-  static const String linksDB = 'assets/links_db.json';
-  static const String alternativeAppsDB = 'assets/alternative_app_db.json';
+  static String linksDB = join(AppDirectories.assetsDir, 'links_db.json');
+  static String alternativeAppsDB = join(AppDirectories.assetsDir, 'alternative_app_db.json');
 }

@@ -33,7 +33,7 @@ setupProviders() {
   getIt.registerLazySingleton<LinksRepository>(() => LinksRepositoryImpl());
   getIt.registerLazySingleton<AlternativeAppRepository>(() => AlternativeAppRepositoryImpl());
   getIt.registerLazySingleton(() => LinksService(getIt.get()));
-  getIt.registerLazySingleton(() => SteamService());
+  getIt.registerLazySingleton<SteamService>(() => SteamServiceImpl());
   getIt.registerLazySingleton<FlatpakRepository>(() => FlatpakRepositoryImpl(getIt.get()));
   getIt.registerLazySingleton<FlatpakService> (() => FlatpakServiceImpl());
   getIt.registerLazySingleton<OpenAppService> (() => OpenAppServiceImpl(getIt.get()));
