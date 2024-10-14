@@ -3,7 +3,7 @@ import 'package:linux_game_tweaks/app/data/models/appstream_model/appstream_mode
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 abstract class FlatpakRepository {
-  Future<AppstreamModel> findAppstream(String id);
+  Future<AppstreamModel> findFlatHubAppstream(String id);
 }
 
 class FlatpakRepositoryImpl implements FlatpakRepository {
@@ -13,7 +13,7 @@ class FlatpakRepositoryImpl implements FlatpakRepository {
   FlatpakRepositoryImpl(this.dio);
 
   @override
-  Future<AppstreamModel> findAppstream(String id) async {
+  Future<AppstreamModel> findFlatHubAppstream(String id) async {
     try {
       final response = await dio.get('https://flathub.org/api/v2/appstream/$id');
       return AppstreamModel.fromJson(response.data);

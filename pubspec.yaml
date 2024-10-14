@@ -49,6 +49,7 @@ dependencies:
   syntax_highlight: 0.4.0
   shared_preferences: 2.3.2
   vdf: 1.1.0
+  result_dart: 1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -63,8 +64,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/alternative_app_db.json
+    - assets/alternative_apps_db.json
     - assets/links_db.json
+    - assets/recommended_apps_db.json
 
 
 flutter_intl:

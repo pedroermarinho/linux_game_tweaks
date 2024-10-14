@@ -80,7 +80,7 @@ class _OpenAppPageState extends State<OpenAppPage> with SingleTickerProviderStat
                   children: widget.app.flatpak
                       .map(
                         (app) => FutureBuilder(
-                          future: flatpakRepository.findAppstream(app.id),
+                          future: flatpakRepository.findFlatHubAppstream(app.id),
                           builder: (context, snapshot) {
                             if (snapshot.hasError) {
                               return YaruWatermark(

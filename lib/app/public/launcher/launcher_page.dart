@@ -32,9 +32,9 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
                 padding: const EdgeInsets.all(8.0),
                 child: YaruBorderContainer(
                   width: double.infinity,
-                  height: 50,
+                  padding: const EdgeInsets.all(8.0),
                   child: Center(
-                    child: Text(
+                    child: SelectableText(
                       store.command.join(' '),
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
@@ -50,9 +50,9 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
                 padding: const EdgeInsets.all(8.0),
                 child: YaruBorderContainer(
                   width: double.infinity,
-                  height: 50,
+                  padding: const EdgeInsets.all(8.0),
                   child: Center(
-                    child: Text(
+                    child: SelectableText(
                       store.finalCommand.join(' '),
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
@@ -122,8 +122,8 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
               YaruTile(
                 title: Text("Executar comando"),
                 trailing: YaruOptionButton(
-                  onPressed: store.executeCommand,
-                  child: const Icon(YaruIcons.media_play),
+                  onPressed: store.isExecuting ? null : store.executeCommand,
+                  child: Icon(store.isExecuting ? YaruIcons.sync : YaruIcons.media_play),
                 ),
               ),
               Visibility(
@@ -138,6 +138,24 @@ class LauncherPage extends StatelessWidget with WatchItMixin {
                       Text(store.messageErrorDetails ?? "Detalhes do erro desconhecidos"),
                     ],
                   ),
+                ),
+              ),
+              SizedBox(height: 8),
+              Visibility(
+                visible: store.isSuccess,
+                child: YaruInfoBox(
+                  yaruInfoType: YaruInfoType.success,
+                  title: Text("Comando executado com sucesso"),
+                  subtitle: Text(store.messageSuccess ?? "Sem mensagens de sucesso"),
+                ),
+              ),
+              SizedBox(height: 8),
+              Visibility(
+                visible: store.isExecuting,
+                child: YaruInfoBox(
+                  yaruInfoType: YaruInfoType.information,
+                  title: Text("O comando está em execução"),
+                  subtitle: Text("Aguarde o término da execução do comando"),
                 ),
               ),
             ],

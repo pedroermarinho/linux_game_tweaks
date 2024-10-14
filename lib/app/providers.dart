@@ -3,6 +3,8 @@ import 'package:get_it/get_it.dart';
 import 'package:linux_game_tweaks/app/data/repositories/alternative_app_repository.dart';
 import 'package:linux_game_tweaks/app/data/repositories/flatpak_repository.dart';
 import 'package:linux_game_tweaks/app/data/repositories/links_repository.dart';
+import 'package:linux_game_tweaks/app/data/repositories/recommended_apps_repository.dart';
+import 'package:linux_game_tweaks/app/data/services/command_service.dart';
 import 'package:linux_game_tweaks/app/data/services/flatpak_service.dart';
 import 'package:linux_game_tweaks/app/data/services/links_service.dart';
 import 'package:linux_game_tweaks/app/data/services/mango_hud_service.dart';
@@ -35,6 +37,8 @@ setupProviders() {
   getIt.registerLazySingleton(() => LinksService(getIt.get()));
   getIt.registerLazySingleton<SteamService>(() => SteamServiceImpl());
   getIt.registerLazySingleton<FlatpakRepository>(() => FlatpakRepositoryImpl(getIt.get()));
-  getIt.registerLazySingleton<FlatpakService> (() => FlatpakServiceImpl());
-  getIt.registerLazySingleton<OpenAppService> (() => OpenAppServiceImpl(getIt.get()));
+  getIt.registerLazySingleton<FlatpakService>(() => FlatpakServiceImpl());
+  getIt.registerLazySingleton<OpenAppService>(() => OpenAppServiceImpl(getIt.get()));
+  getIt.registerLazySingleton<RecommendedAppsRepository>(() => RecommendedAppsRepositoryImpl());
+  getIt.registerLazySingleton<CommandService>(() => CommandServiceImpl(openAppService: getIt.get()));
 }

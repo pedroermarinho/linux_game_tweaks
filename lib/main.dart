@@ -6,5 +6,5 @@ import 'package:yaru/yaru.dart';
 Future<void> main() async {
   await YaruWindowTitleBar.ensureInitialized();
   await new ConfigAppService().setup();
-  runApp(const AppWidget());
+  runApp(AppWidget());
 }

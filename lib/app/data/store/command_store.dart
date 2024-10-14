@@ -1,66 +1,41 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
-import 'package:linux_game_tweaks/app/core/utils/process_custom.dart';
+import 'package:linux_game_tweaks/app/data/services/command_service.dart';
+import 'package:linux_game_tweaks/app/providers.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 class CommandStore extends ChangeNotifier {
   final log = Logger('Command Execution');
+  final CommandService commandService = getIt();
+
   List<String> command = [];
   String? messageError;
   String? messageErrorDetails;
+  String? messageSuccess;
   bool isEnableMangoHud = false;
   bool isEnableGameMode = false;
   bool isEnableGamescope = false;
   bool isEnableWine = false;
   String? prefix;
   String? suffix;
+  bool isExecuting = false;
 
   get isError => messageError != null;
 
-  List<String> get finalCommand {
-    if (command.isEmpty) {
-      return [];
-    }
+  get isSuccess => messageSuccess != null;
 
-    List<String> commandFinal = [...command];
-
-    if (isEnableWine) {
-      commandFinal.insert(0, 'wine');
-    }
-
-    if (isEnableMangoHud) {
-      commandFinal.insert(0, 'mangohud');
-    }
-
-    if (isEnableGamescope) {
-      commandFinal.insert(
-        0,
-        '--mangoapp',
+  List<String> get finalCommand => commandService.getFinalCommand(
+        command: command,
+        isEnableMangoHud: isEnableMangoHud,
+        isEnableGameMode: isEnableGameMode,
+        isEnableGamescope: isEnableGamescope,
+        isEnableWine: isEnableWine,
+        prefix: prefix,
+        suffix: suffix,
       );
-      commandFinal.insert(
-        0,
-        'gamescope',
-      );
-    }
-
-    if (isEnableGameMode) {
-      commandFinal.insert(0, 'gamemoderun');
-    }
-
-    if (prefix != null) {
-      commandFinal.insert(0, prefix!);
-    }
-
-    if (suffix != null) {
-      commandFinal.add(suffix!);
-    }
-
-    return commandFinal;
-  }
 
   void setCommand(List<String> value) {
     command = value;
+    commandService.setup(value);
     notifyListeners();
   }
 
@@ -97,6 +72,8 @@ class CommandStore extends ChangeNotifier {
   void clearCommand() {
     command = [];
     messageError = null;
+    messageErrorDetails = null;
+    messageSuccess = null;
     isEnableMangoHud = false;
     isEnableGameMode = false;
     isEnableGamescope = false;
@@ -109,24 +86,33 @@ class CommandStore extends ChangeNotifier {
   Future<void> executeCommand() async {
     messageError = null;
     messageErrorDetails = null;
-    notifyListeners();
-    try {
-      final process =
-          await runCommand(finalCommand.first, finalCommand.sublist(1));
+    messageSuccess = null;
 
-      if (process.exitCode != 0) {
-        messageError = process.stderr.toString();
-      }
-    } on ProcessException catch (e) {
-      messageError = "Erro ao executar o comando: ${finalCommand.join(' ')}";
-      messageErrorDetails = e.message;
-      log.error(
-          "Error on run commamando ${finalCommand.join(' ')} - ${e.message}");
-    } catch (e) {
-      messageError = "Erro ao executar o comando: ${finalCommand.join(' ')}";
-      log.error(
-          "Error on run commamando ${finalCommand.join(' ')} - ${e.toString()}");
-    }
+    isExecuting = true;
+
+    messageSuccess = "Iniciando execução do comando...";
     notifyListeners();
+
+    commandService.openCommand(finalCommand).listen((result) {
+      result.fold(
+        (success) {
+          log.info('Command executed with success: $success');
+          messageSuccess = success;
+          messageError = null;
+          messageErrorDetails = null;
+          notifyListeners();
+        },
+        (failure) {
+          log.error('Error executing command: $failure');
+          messageError = failure.message;
+          messageErrorDetails = failure.details;
+          messageSuccess = null;
+          notifyListeners();
+        },
+      );
+    }).onDone(() {
+      isExecuting = false;
+      notifyListeners();
+    });
   }
 }

@@ -1,0 +1,77 @@
+{
+  "snaps": [],
+  "flatpaks": [
+    {
+      "remote": "flathub",
+      "id": "com.lutris.Lutris"
+    },
+    {
+      "remote": "flathub",
+      "id": "com.heroicgameslauncher.hgl"
+    },
+    {
+      "remote": "flathub",
+      "id": "com.valvesoftware.Steam"
+    },
+    {
+      "remote": "flathub",
+      "id": "net.davidotek.pupgui2"
+    },
+    {
+      "remote": "flathub",
+      "id": "io.github.flygirl.mangohud"
+    },
+    {
+      "remote": "flathub",
+      "id": "org.openrgb.OpenRGB"
+    },
+    {
+      "remote": "flathub",
+      "id": "com.feralinteractive.GameMode"
+    },
+    {
+      "remote": "flathub",
+      "id": "net.rpcs3.RPCS3"
+    },
+    {
+      "remote": "flathub",
+      "id": "org.yuzu_emu.yuzu"
+    },
+    {
+      "remote": "flathub",
+      "id": "com.usebottles.bottles"
+    },
+    {
+      "remote": "flathub",
+      "id": "com.discordapp.Discord"
+    },
+    {
+      "remote": "flathub",
+      "id": "com.obsproject.Studio"
+    },
+    {
+      "remote": "flathub",
+      "id": "com.spotify.Client"
+    },
+    {
+      "remote": "flathub",
+      "id": "com.github.tchx84.Flatseal"
+    },
+    {
+      "remote": "flathub",
+      "id": "org.freedesktop.Platform.VulkanLayer.MangoHud"
+    },
+    {
+      "remote": "flathub",
+      "id": "org.freedesktop.Platform.VulkanLayer.gamescope"
+    },
+    {
+      "remote": "flathub",
+      "id": "com.github.Matoking.protontricks"
+    },
+    {
+      "remote": "flathub",
+      "id": "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
+    }
+  ]
+}

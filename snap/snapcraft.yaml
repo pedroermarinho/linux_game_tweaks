@@ -6,7 +6,7 @@ description: Ajuste facilmente jogos no Linux com Game Tweaks.
 website: https://github.com/pedroermarinho/linux_game_tweaks
 contact: pedroermarinho@gmail.com
 source-code: https://github.com/pedroermarinho/linux_game_tweaks
-icon: snap/gui/linux-game-tweaks.png
+icon: snap/gui/linux_game_tweaks.png
 
 confinement: devmode
 base: core22
@@ -17,8 +17,8 @@ architectures:
   - build-on: amd64
 
 apps:
-  game-tweaks:
-    command: linux-game-tweaks
+  linux_game_tweaks:
+    command: linux_game_tweaks
     extensions: [gnome]
     plugs:
         - desktop
@@ -27,15 +27,18 @@ apps:
         - network
         - network-status
         - process-control
+        - system-observe       # Adicionado para permitir observação de processos do sistema
+        - system-files         # Para permitir o acesso a arquivos específicos do sistema
+
 
 slots:
-  game-tweaks:
+  linux_game_tweaks:
     interface: dbus
     bus: session
-    name: io.github.pedroermarinho.linux-game-tweaks
+    name: io.github.pedroermarinho.linux_game_tweaks
 
 parts:
-  game-tweaks:
+  linux_game_tweaks:
     source: .
     plugin: flutter
     flutter-target: lib/main.dart
