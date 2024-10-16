@@ -14,8 +14,9 @@ class ApplicationsPage extends StatefulWidget {
 }
 
 class _ApplicationsPageState extends State<ApplicationsPage> {
-  List<SteamAppModel> steamApp = [];
+
   final SteamService steamService = getIt.get();
+  List<SteamAppModel> steamApp = [];
 
   @override
   void initState() {

@@ -9,14 +9,44 @@ part of 'appstream_model.dart';
 _$AppstreamModelImpl _$$AppstreamModelImplFromJson(Map<String, dynamic> json) =>
     _$AppstreamModelImpl(
       type: json['type'] as String,
-      description: json['description'] as String,
-      icon: json['icon'] as String,
+      description: json['description'] as String?,
+      screenshots: (json['screenshots'] as List<dynamic>?)
+          ?.map((e) => ScreenshotModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      releases: (json['releases'] as List<dynamic>)
+          .map((e) => ReleaseModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      contentRating: json['content_rating'] == null
+          ? null
+          : ContentRatingModel.fromJson(
+              json['content_rating'] as Map<String, dynamic>),
+      urls: UrlsModel.fromJson(json['urls'] as Map<String, dynamic>),
+      icon: json['icon'] as String?,
+      icons: (json['icons'] as List<dynamic>?)
+          ?.map((e) => IconModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       metadata:
           MetadataModel.fromJson(json['metadata'] as Map<String, dynamic>),
+      developers: (json['developers'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       id: json['id'] as String,
       name: json['name'] as String,
       summary: json['summary'] as String,
-      developerName: json['developer_name'] as String,
+      projectLicense: json['project_license'] as String,
+      developerName: json['developer_name'] as String?,
+      launchable: json['launchable'] == null
+          ? null
+          : LaunchableModel.fromJson(
+              json['launchable'] as Map<String, dynamic>),
+      categories: (json['categories'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      provides: (json['provides'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      bundle: BundleModel.fromJson(json['bundle'] as Map<String, dynamic>),
+      extend: json['extends'] as String?,
       isFreeLicense: json['is_free_license'] as bool,
     );
 
@@ -25,19 +55,32 @@ Map<String, dynamic> _$$AppstreamModelImplToJson(
     <String, dynamic>{
       'type': instance.type,
       'description': instance.description,
+      'screenshots': instance.screenshots,
+      'releases': instance.releases,
+      'content_rating': instance.contentRating,
+      'urls': instance.urls,
       'icon': instance.icon,
+      'icons': instance.icons,
       'metadata': instance.metadata,
+      'developers': instance.developers,
       'id': instance.id,
       'name': instance.name,
       'summary': instance.summary,
+      'project_license': instance.projectLicense,
       'developer_name': instance.developerName,
+      'launchable': instance.launchable,
+      'categories': instance.categories,
+      'provides': instance.provides,
+      'bundle': instance.bundle,
+      'extends': instance.extend,
       'is_free_license': instance.isFreeLicense,
     };
 
 _$ScreenshotModelImpl _$$ScreenshotModelImplFromJson(
         Map<String, dynamic> json) =>
     _$ScreenshotModelImpl(
-      defaultScreenshot: json['defaultScreenshot'] as bool?,
+      caption: json['caption'] as String?,
+      defaultScreenshot: json['default'] as bool?,
       sizes: (json['sizes'] as List<dynamic>)
           .map((e) => ScreenshotSizeModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -46,7 +89,8 @@ _$ScreenshotModelImpl _$$ScreenshotModelImplFromJson(
 Map<String, dynamic> _$$ScreenshotModelImplToJson(
         _$ScreenshotModelImpl instance) =>
     <String, dynamic>{
-      'defaultScreenshot': instance.defaultScreenshot,
+      'caption': instance.caption,
+      'default': instance.defaultScreenshot,
       'sizes': instance.sizes,
     };
 
@@ -97,11 +141,15 @@ Map<String, dynamic> _$$ContentRatingModelImplToJson(
 _$UrlsModelImpl _$$UrlsModelImplFromJson(Map<String, dynamic> json) =>
     _$UrlsModelImpl(
       homepage: json['homepage'] as String,
+      bugtracker: json['bugtracker'] as String?,
+      donation: json['donation'] as String?,
     );
 
 Map<String, dynamic> _$$UrlsModelImplToJson(_$UrlsModelImpl instance) =>
     <String, dynamic>{
       'homepage': instance.homepage,
+      'bugtracker': instance.bugtracker,
+      'donation': instance.donation,
     };
 
 _$IconModelImpl _$$IconModelImplFromJson(Map<String, dynamic> json) =>
@@ -171,7 +219,7 @@ _$BundleModelImpl _$$BundleModelImplFromJson(Map<String, dynamic> json) =>
     _$BundleModelImpl(
       value: json['value'] as String,
       type: json['type'] as String,
-      runtime: json['runtime'] as String,
+      runtime: json['runtime'] as String?,
       sdk: json['sdk'] as String,
     );
 

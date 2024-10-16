@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:linux_game_tweaks/app/data/models/flatpak/flatpak_model.dart';
 
 part 'appstream_model.freezed.dart';
 part 'appstream_model.g.dart';
@@ -9,28 +10,31 @@ class AppstreamModel with _$AppstreamModel {
 
   factory AppstreamModel({
     required String type,
-    required String description,
-    // required List<ScreenshotModel> screenshots,
-    // required List<ReleaseModel> releases,
-    // @JsonKey(name: "content_rating") required ContentRatingModel contentRating,
-    // required UrlsModel urls,
-    required String icon,
-    // required List<IconModel> icons,
+    required String? description,
+    required List<ScreenshotModel>? screenshots,
+    required List<ReleaseModel> releases,
+    @JsonKey(name: "content_rating") required ContentRatingModel? contentRating,
+    required UrlsModel urls,
+    required String? icon,
+    required List<IconModel>? icons,
     required MetadataModel metadata,
-    // required List<String> developers,
+    required List<String>? developers,
     required String id,
     required String name,
     required String summary,
-    // @JsonKey(name: "roject_license") required String projectLicense,
-    @JsonKey(name: "developer_name") required String developerName,
-    // required LaunchableModel launchable,
-    // required List<String> categories,
-    // required List<String> provides,
-    // required BundleModel bundle,
+    @JsonKey(name: "project_license") required String projectLicense,
+    @JsonKey(name: "developer_name") required String? developerName,
+    required LaunchableModel? launchable,
+    required List<String>? categories,
+    required List<String>? provides,
+    required BundleModel bundle,
+    @JsonKey(name: "extends") required String? extend,
     @JsonKey(name: "is_free_license") required bool isFreeLicense,
   }) = _AppstreamModel;
 
   factory AppstreamModel.fromJson(Map<String, dynamic> json) => _$AppstreamModelFromJson(json);
+
+  FlatpakModel get getFlatpakModel => FlatpakModel(remote: 'flathub', id: id);
 }
 
 @freezed
@@ -38,7 +42,8 @@ class ScreenshotModel with _$ScreenshotModel {
   const ScreenshotModel._();
 
   factory ScreenshotModel({
-    required bool? defaultScreenshot,
+    required String? caption,
+    @JsonKey(name: "default") required bool? defaultScreenshot,
     required List<ScreenshotSizeModel> sizes,
   }) = _ScreenshotModel;
 
@@ -89,6 +94,8 @@ class UrlsModel with _$UrlsModel {
 
   factory UrlsModel({
     required String homepage,
+    required String? bugtracker,
+    required String? donation,
   }) = _UrlsModel;
 
   factory UrlsModel.fromJson(Map<String, dynamic> json) => _$UrlsModelFromJson(json);
@@ -145,7 +152,7 @@ class BundleModel with _$BundleModel {
   factory BundleModel({
     required String value,
     required String type,
-    required String runtime,
+    required String? runtime,
     required String sdk,
   }) = _BundleModel;
 

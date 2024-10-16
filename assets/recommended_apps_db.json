@@ -3,10 +3,6 @@
   "flatpaks": [
     {
       "remote": "flathub",
-      "id": "com.lutris.Lutris"
-    },
-    {
-      "remote": "flathub",
       "id": "com.heroicgameslauncher.hgl"
     },
     {
@@ -19,23 +15,11 @@
     },
     {
       "remote": "flathub",
-      "id": "io.github.flygirl.mangohud"
-    },
-    {
-      "remote": "flathub",
       "id": "org.openrgb.OpenRGB"
     },
     {
       "remote": "flathub",
-      "id": "com.feralinteractive.GameMode"
-    },
-    {
-      "remote": "flathub",
       "id": "net.rpcs3.RPCS3"
-    },
-    {
-      "remote": "flathub",
-      "id": "org.yuzu_emu.yuzu"
     },
     {
       "remote": "flathub",

@@ -120,10 +120,12 @@ class _OpenAppPageState extends State<OpenAppPage> with SingleTickerProviderStat
                                   subtitle: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text(appstream.developerName, overflow: TextOverflow.ellipsis, maxLines: 1),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
+                                      if (appstream.developerName != null) ...[
+                                        Text(appstream.developerName!, overflow: TextOverflow.ellipsis, maxLines: 1),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                      ],
                                       FlatpakButtonWidget(flatpak: app),
                                     ],
                                   ),
@@ -131,7 +133,7 @@ class _OpenAppPageState extends State<OpenAppPage> with SingleTickerProviderStat
                                     width: 70,
                                     height: 70,
                                     child: Image.network(
-                                      appstream.icon,
+                                      appstream.icon ?? '',
                                       errorBuilder: (context, error, stackTrace) {
                                         return Icon(
                                           YaruIcons.games,
