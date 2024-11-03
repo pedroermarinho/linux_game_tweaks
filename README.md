@@ -25,7 +25,7 @@ O projeto ainda está em fase inicial. As telas já funcionais incluem:
 - **Flutter/Dart**
 - Planejado para distribuição via Snap, Flatpak, AppImage e possivelmente AUR.
 	- [ ] Snap
-	- [ ] Flatpak (https://github.com/pedroermarinho/io.github.pedroermarinho.linux_game_tweaks)
+	- [ ] [Flatpak](https://github.com/pedroermarinho/io.github.pedroermarinho.linux_game_tweaks)
 	- [x] AppImage
 	- [ ] AUR
 	- [ ] Deb
