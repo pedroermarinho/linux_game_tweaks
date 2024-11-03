@@ -127,6 +127,11 @@ flutter build linux --release
 ![screenshot_3](docs/imgs/screenshot_3.png)
 ![screenshot_4](docs/imgs/screenshot_4.png)
 ![screenshot_5](docs/imgs/screenshot_5.png)
+![screenshot_6](docs/imgs/screenshot_6.png)
+![screenshot_7](docs/imgs/screenshot_7.png)
+![screenshot_8](docs/imgs/screenshot_8.png)
+![screenshot_9](docs/imgs/screenshot_9.png)
+![screenshot_10](docs/imgs/screenshot_10.png)
 
 ---
 
