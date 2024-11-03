@@ -358,3 +358,18 @@ Map<String, dynamic> _$$MangoHudModelImplToJson(_$MangoHudModelImpl instance) =>
       'offsetY': instance.offsetY,
       'outputFile': instance.outputFile,
     };
+
+_$ProfileMangoHudImpl _$$ProfileMangoHudImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ProfileMangoHudImpl(
+      name: json['name'] as String,
+      mangoHud:
+          MangoHudModel.fromJson(json['mangoHud'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$ProfileMangoHudImplToJson(
+        _$ProfileMangoHudImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'mangoHud': instance.mangoHud,
+    };

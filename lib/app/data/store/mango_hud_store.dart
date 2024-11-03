@@ -56,8 +56,16 @@ class MangoHudStore extends ChangeNotifier {
     await _mangoHudService.runVulkanTest();
   }
 
-  changeGlobal(bool value) async {
+  Future<void> changeGlobal(bool value) async {
     await _mangoHudService.changeGlobal(value);
     loadIsEnableGlobal();
   }
+
+  Future<void> saveProfile(ProfileMangoHud? profile) async {
+    if (profile == null) return;
+    await _mangoHudService.saveToFileConfig(profile.mangoHud);
+    await load();
+  }
+
+
 }

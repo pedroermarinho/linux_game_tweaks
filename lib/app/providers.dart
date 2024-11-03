@@ -24,7 +24,7 @@ final getIt = GetIt.instance;
 
 setupProviders() {
   getIt.registerLazySingleton(() => Dio());
-  getIt.registerLazySingleton(() => MangoHudService());
+  getIt.registerLazySingleton<MangoHudService>(() => MangoHudServiceImpl());
   getIt.registerLazySingleton(() => CommandStore());
   getIt.registerLazySingleton(() => MangoHudStore(getIt.get()));
   getIt.registerLazySingleton(() => PreviewModeStore());

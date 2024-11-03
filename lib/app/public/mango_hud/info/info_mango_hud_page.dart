@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:linux_game_tweaks/app/core/utils/profiles_mango_hud.dart';
 import 'package:linux_game_tweaks/app/core/widgets/section_description_widget.dart';
 import 'package:linux_game_tweaks/app/core/widgets/settings_page_widget.dart';
 import 'package:linux_game_tweaks/app/core/widgets/settings_section_widget.dart';
+import 'package:linux_game_tweaks/app/core/widgets/yaru_dropdown_button_widget.dart';
 import 'package:linux_game_tweaks/app/core/widgets/yaru_switch_row_widget.dart';
 import 'package:linux_game_tweaks/app/data/store/mango_hud_store.dart';
 import 'package:linux_game_tweaks/app/providers.dart';
@@ -31,19 +33,23 @@ class InfoMangoHudPage extends StatelessWidget with WatchItMixin {
               ),
             ),
             YaruInfoBox(
-              yaruInfoType: store.isInstalled
-                  ? YaruInfoType.success
-                  : YaruInfoType.warning,
-              title: store.isInstalled
-                  ? Text(S.current.mangoHudInfoPageInstalled)
-                  : Text(S.current.mangoHudInfoPageNotInstalled),
-              subtitle: store.isInstalled
-                  ? Text(S.current.mangoHudInfoPageInstalledDescription)
-                  : Text(S.current.mangoHudInfoPageNotInstalledDescription),
+              yaruInfoType: store.isInstalled ? YaruInfoType.success : YaruInfoType.warning,
+              title: store.isInstalled ? Text(S.current.mangoHudInfoPageInstalled) : Text(S.current.mangoHudInfoPageNotInstalled),
+              subtitle: store.isInstalled ? Text(S.current.mangoHudInfoPageInstalledDescription) : Text(S.current.mangoHudInfoPageNotInstalledDescription),
             ),
+            SizedBox(height: 8),
             YaruTile(
               title: Text(S.current.mangoHudInfoPageVersion),
               subtitle: Text(store.version),
+            ),
+            YaruTile(
+              title: Text("Perfil pré-definido"),
+              trailing: YaruDropdownButtonWidget(
+                value: null,
+                values: ProfilesMangoHud().profiles,
+                textModifier: (value) => value?.name?? "",
+                onChanged: store.saveProfile,
+              ),
             ),
             YaruTile(
               title: Text(S.current.mangoHudInfoPageTestOpenGL),
@@ -61,8 +67,7 @@ class InfoMangoHudPage extends StatelessWidget with WatchItMixin {
             ),
             YaruSwitchRowWidget(
               trailingWidget: Text(S.current.mangoHudInfoPageEnableGlobal),
-              actionDescription:
-                  S.current.mangoHudInfoPageEnableGlobalDescription,
+              actionDescription: S.current.mangoHudInfoPageEnableGlobalDescription,
               value: store.isEnableGlobal,
               onChanged: _controller.changeGlobal,
             ),

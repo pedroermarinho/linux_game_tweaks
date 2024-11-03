@@ -4851,3 +4851,189 @@ abstract class _MangoHudModel extends MangoHudModel {
   _$$MangoHudModelImplCopyWith<_$MangoHudModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+ProfileMangoHud _$ProfileMangoHudFromJson(Map<String, dynamic> json) {
+  return _ProfileMangoHud.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ProfileMangoHud {
+  String get name => throw _privateConstructorUsedError;
+  MangoHudModel get mangoHud => throw _privateConstructorUsedError;
+
+  /// Serializes this ProfileMangoHud to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of ProfileMangoHud
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ProfileMangoHudCopyWith<ProfileMangoHud> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ProfileMangoHudCopyWith<$Res> {
+  factory $ProfileMangoHudCopyWith(
+          ProfileMangoHud value, $Res Function(ProfileMangoHud) then) =
+      _$ProfileMangoHudCopyWithImpl<$Res, ProfileMangoHud>;
+  @useResult
+  $Res call({String name, MangoHudModel mangoHud});
+
+  $MangoHudModelCopyWith<$Res> get mangoHud;
+}
+
+/// @nodoc
+class _$ProfileMangoHudCopyWithImpl<$Res, $Val extends ProfileMangoHud>
+    implements $ProfileMangoHudCopyWith<$Res> {
+  _$ProfileMangoHudCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of ProfileMangoHud
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? mangoHud = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      mangoHud: null == mangoHud
+          ? _value.mangoHud
+          : mangoHud // ignore: cast_nullable_to_non_nullable
+              as MangoHudModel,
+    ) as $Val);
+  }
+
+  /// Create a copy of ProfileMangoHud
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MangoHudModelCopyWith<$Res> get mangoHud {
+    return $MangoHudModelCopyWith<$Res>(_value.mangoHud, (value) {
+      return _then(_value.copyWith(mangoHud: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$ProfileMangoHudImplCopyWith<$Res>
+    implements $ProfileMangoHudCopyWith<$Res> {
+  factory _$$ProfileMangoHudImplCopyWith(_$ProfileMangoHudImpl value,
+          $Res Function(_$ProfileMangoHudImpl) then) =
+      __$$ProfileMangoHudImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, MangoHudModel mangoHud});
+
+  @override
+  $MangoHudModelCopyWith<$Res> get mangoHud;
+}
+
+/// @nodoc
+class __$$ProfileMangoHudImplCopyWithImpl<$Res>
+    extends _$ProfileMangoHudCopyWithImpl<$Res, _$ProfileMangoHudImpl>
+    implements _$$ProfileMangoHudImplCopyWith<$Res> {
+  __$$ProfileMangoHudImplCopyWithImpl(
+      _$ProfileMangoHudImpl _value, $Res Function(_$ProfileMangoHudImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProfileMangoHud
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? mangoHud = null,
+  }) {
+    return _then(_$ProfileMangoHudImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      mangoHud: null == mangoHud
+          ? _value.mangoHud
+          : mangoHud // ignore: cast_nullable_to_non_nullable
+              as MangoHudModel,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ProfileMangoHudImpl extends _ProfileMangoHud {
+  const _$ProfileMangoHudImpl({required this.name, required this.mangoHud})
+      : super._();
+
+  factory _$ProfileMangoHudImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProfileMangoHudImplFromJson(json);
+
+  @override
+  final String name;
+  @override
+  final MangoHudModel mangoHud;
+
+  @override
+  String toString() {
+    return 'ProfileMangoHud(name: $name, mangoHud: $mangoHud)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProfileMangoHudImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.mangoHud, mangoHud) ||
+                other.mangoHud == mangoHud));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, mangoHud);
+
+  /// Create a copy of ProfileMangoHud
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProfileMangoHudImplCopyWith<_$ProfileMangoHudImpl> get copyWith =>
+      __$$ProfileMangoHudImplCopyWithImpl<_$ProfileMangoHudImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ProfileMangoHudImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ProfileMangoHud extends ProfileMangoHud {
+  const factory _ProfileMangoHud(
+      {required final String name,
+      required final MangoHudModel mangoHud}) = _$ProfileMangoHudImpl;
+  const _ProfileMangoHud._() : super._();
+
+  factory _ProfileMangoHud.fromJson(Map<String, dynamic> json) =
+      _$ProfileMangoHudImpl.fromJson;
+
+  @override
+  String get name;
+  @override
+  MangoHudModel get mangoHud;
+
+  /// Create a copy of ProfileMangoHud
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProfileMangoHudImplCopyWith<_$ProfileMangoHudImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

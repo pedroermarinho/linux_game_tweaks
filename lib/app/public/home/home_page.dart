@@ -40,6 +40,16 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Text(
+              'Recomendados',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           Expanded(
             child: YaruScrollViewUndershoot.builder(
               builder: (ctx, controller) {

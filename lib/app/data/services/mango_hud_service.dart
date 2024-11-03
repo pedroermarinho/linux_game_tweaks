@@ -5,8 +5,23 @@ import 'package:linux_game_tweaks/app/core/constants/dir_constants.dart';
 import 'package:linux_game_tweaks/app/core/utils/process_custom.dart';
 import 'package:linux_game_tweaks/app/data/models/mango_hud/mango_hud_model.dart';
 import 'package:path/path.dart';
+import 'package:ubuntu_logger/ubuntu_logger.dart';
 
-class MangoHudService {
+abstract class MangoHudService {
+  Future<MangoHudModel> getMangoHudConfig();
+  Future<void> saveToFileConfig(MangoHudModel model);
+  Future<String> getVersion();
+  Future<bool> checkInstallation();
+  Future<bool> checkGlobal();
+  Future<void> runOpenGLTest();
+  Future<void> runVulkanTest();
+  Future<void> changeGlobal(bool value);
+}
+
+
+class MangoHudServiceImpl extends MangoHudService {
+  final Logger logger = Logger('MangoHudService');
+
   Future<String> getVersion() async {
     final data = await runCommand('mangohud', ['--version']);
     return data.stdout.toString();
@@ -18,11 +33,17 @@ class MangoHudService {
   }
 
   Future<void> runOpenGLTest() async {
-    await runCommand('mangohud', ['glxgears']);
+    final process = await runCommand('mangohud', ['glxgears']);
+    if (process.exitCode != 0) {
+      logger.error('Error running OpenGL test: ${process.stderr}');
+    }
   }
 
   Future<void> runVulkanTest() async {
-    await runCommand('mangohud', ['vkcube']);
+    final process = await runCommand('mangohud', ['vkcube']);
+    if (process.exitCode != 0) {
+      logger.error('Error running Vulkan test: ${process.stderr}');
+    }
   }
 
   Future<void> changeGlobal(bool value) async {
@@ -48,7 +69,12 @@ class MangoHudService {
         ['tee', '-a', environmentPath],
       );
       process.stdin.writeln('MANGOHUD=$mangoHud');
-      await process.exitCode;
+      logger.info('MANGOHUD=$mangoHud');
+      final exitCode =await process.exitCode;
+
+      if (exitCode != 0) {
+        logger.error('Error changing global MangoHud: $exitCode');
+      }
     }
   }
 
@@ -62,9 +88,8 @@ class MangoHudService {
   }
 
   Future<MangoHudModel> getMangoHudConfig() async {
-    final mangoHubService = MangoHudService();
     var model = const MangoHudModel();
-    final file = File(mangoHubService.getPathFileConfig());
+    final file = File(getPathFileConfig());
     final lines = await file.readAsLines();
     for (final line in lines) {
       if (line.contains(RegExp(r'='))) {
@@ -85,8 +110,9 @@ class MangoHudService {
   }
 
   Future<void> saveToFileConfig(MangoHudModel model) async {
-    final mangoHubService = MangoHudService();
-    final file = File(mangoHubService.getPathFileConfig());
+
+    logger.info('Saving MangoHud config to file: ${model.toJson()}');
+    final file = File(getPathFileConfig());
     final data = model.toJson();
     final lines = data.entries.where(_filer).map(_toLine).toList();
     await file.writeAsString(lines.join('\n'));

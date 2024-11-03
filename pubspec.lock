@@ -1099,10 +1099,10 @@ packages:
     dependency: transitive
     description:
       name: ubuntu_localizations
-      sha256: b8d17fe071b9c3d95bc6ab8bf4a761debed5f50245e88d1b0e2a86360f1b41a3
+      sha256: "4c0f1df29fd469aa306d50932d5c2529bc3765233d580e5c162755560b9c4991"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.0"
+    version: "0.5.1"
   ubuntu_logger:
     dependency: "direct main"
     description:
@@ -1115,10 +1115,10 @@ packages:
     dependency: "direct main"
     description:
       name: ubuntu_widgets
-      sha256: b64516cba87a996c1348058a8e5c83abef370074df44953b8a4d21b657167405
+      sha256: "9095bedac3928f4313ba7f2b37dd4658f684efa51e88f60fc83590e5fb3a88ef"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.0"
+    version: "0.7.1"
   url_launcher:
     dependency: "direct main"
     description:

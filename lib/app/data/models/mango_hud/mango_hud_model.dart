@@ -694,3 +694,17 @@ class MangoHudModel with _$MangoHudModel {
   factory MangoHudModel.fromJson(Map<String, Object?> json) =>
       _$MangoHudModelFromJson(json);
 }
+
+
+@Freezed()
+class ProfileMangoHud with _$ProfileMangoHud {
+  const ProfileMangoHud._();
+
+  const factory ProfileMangoHud({
+    required String name,
+    required MangoHudModel mangoHud,
+  }) = _ProfileMangoHud;
+
+  factory ProfileMangoHud.fromJson(Map<String, Object?> json) =>
+      _$ProfileMangoHudFromJson(json);
+}

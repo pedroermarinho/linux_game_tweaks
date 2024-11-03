@@ -17,7 +17,7 @@ dependencies:
 
   yaru: 5.2.1
   yaru_window: 0.2.1+1
-  ubuntu_widgets: 0.7.0
+  ubuntu_widgets: 0.7.1
   ubuntu_logger: 0.2.0
   handy_window: 0.4.0
   desktop_notifications: 0.6.3
