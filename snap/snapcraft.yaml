@@ -17,7 +17,7 @@ architectures:
   - build-on: amd64
 
 apps:
-  linux_game_tweaks:
+  linux-game-tweaks:
     command: linux_game_tweaks
     extensions: [gnome]
     plugs:
@@ -32,13 +32,13 @@ apps:
 
 
 slots:
-  linux_game_tweaks:
+  linux-game-tweaks:
     interface: dbus
     bus: session
-    name: io.github.pedroermarinho.linux_game_tweaks
+    name: io.github.pedroermarinho.linux-game-tweaks
 
 parts:
-  linux_game_tweaks:
+  linux-game-tweaks:
     source: .
     plugin: flutter
     flutter-target: lib/main.dart
@@ -47,8 +47,8 @@ parts:
       rm -rf build .idea .git .dart_tool .pub .vscode .github android ios web
       snapcraftctl build
       
-  dependencies:
-    plugin: nil
-    stage-packages:
-      - mangohud
-      - vulkan-tools
+#  dependencies:
+#    plugin: nil
+#    stage-packages:
+#      - mangohud
+#      - vulkan-tools
